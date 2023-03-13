@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:17 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/13 15:15:14 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/13 17:39:56 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 Contact::Contact()
 {
+	std::cout << "Contact constructor called" << std::endl;
 }
 
 Contact::~Contact()
 {
+	std::cout << "Contact destructor called" << std::endl;
 }
 
 // std::string	Contact::_getInput(std::string str) const {
