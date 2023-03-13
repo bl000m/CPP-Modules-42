@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:20 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/13 14:41:24 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/13 17:59:54 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main() {
 		else if (!input.compare("SEARCH"))
 		{
 			phonebook.displayContacts();
-		// 	phonebook.searchContact();
+			phonebook.searchContact();
 		}
 	}
 }

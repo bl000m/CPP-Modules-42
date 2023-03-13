@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:08:24 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/13 17:39:13 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/13 17:59:29 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,12 @@ void	Phonebook::displayContacts(){
 }
 
 void	Phonebook::searchContact(){
+	int user_input = -1;
 
+	std::cout << "Enter record Index" << std::endl;
+	std::cin >> user_input;
+	if (user_input >= 0 && user_input < 8)
+		this->_contacts[user_input].display();
+	else
+		std::cout << "Index not valid, try again" << std::endl;
 }
