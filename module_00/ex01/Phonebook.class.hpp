@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 17:08:24 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/13 15:13:21 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/13 10:42:23 by mpagani           #+#    #+#             */
+/*   Updated: 2023/03/13 13:15:22 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.class.hpp"
+#ifndef PHONEBOOK_CLASS_HPP
+# define PHONEBOOK_CLASS_HPP
 
-Phonebook::Phonebook()
-{
+#include <iostream>
+#include "Contact.class.hpp"
 
-}
+class Phonebook {
 
-Phonebook::~Phonebook()
-{
-}
+	//member attributes
 
-void	Phonebook::addContact(){
+	public:
 
-	static int	i;
-	this->_contacts[i % 8].initContact();
-	this->_contacts[i % 8].assigningIndex(i % 8);
-	i++;
+		Phonebook();
+		~Phonebook();
 
-}
+		void	addContact();
+		void	displayContacts();
+		void	searchContact();
 
-void	Phonebook::displayContacts(){
+	private:
+		Contact _contacts[8];
+	// member functions
 
-	std::cout << ".~.~ contacts: ~.~." << std::endl;
-	for (size_t i = 0; i < 8; i++)
-		this->_contacts[i].display();
+};
 
-}
-
-void	Phonebook::searchContact(){
-
-}
+#endif

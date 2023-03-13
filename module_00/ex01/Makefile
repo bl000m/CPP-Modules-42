@@ -6,13 +6,13 @@
 #    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 17:07:21 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/11 17:08:14 by mpagani          ###   ########.fr        #
+#    Updated: 2023/03/13 13:12:02 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= phonebook
 
-SRCS 	=  phonebook.cpp
+SRCS 	=  phonebook.cpp contact.cpp main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
