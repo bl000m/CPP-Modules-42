@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:23 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/13 13:15:22 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/14 12:21:26 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_CLASS_HPP
 
 #include <iostream>
+#include <climits>
 #include "Contact.class.hpp"
 
 class Phonebook {
@@ -28,6 +29,7 @@ class Phonebook {
 		void	addContact();
 		void	displayContacts();
 		void	searchContact();
+		int		existingIndex(int index);
 
 	private:
 		Contact _contacts[8];
