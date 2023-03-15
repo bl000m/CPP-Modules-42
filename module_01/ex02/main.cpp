@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:42:31 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/15 14:06:42 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/15 14:11:00 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(){
 	std::string *stringPTR = &message;
 	std::string &stringREF = message;
 
-	std::cout << &message << std::endl;
-	std::cout << &stringPTR << std::endl;
-	std::cout << &stringREF << std::endl;
+	std::cout << &message << " = " << message << std::endl;
+	std::cout << stringPTR << " = " << *stringPTR << std::endl;
+	std::cout << &stringREF << " = " << stringREF << std::endl;
 
 	return (0);
 }
