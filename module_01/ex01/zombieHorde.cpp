@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:17:47 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/15 13:40:31 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/15 13:56:17 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ Zombie* zombieHorde( int N, std::string name ){
 	for (int i = 0; i < N; i++){
 		zombies[i].setName(name);
 	}
-	delete [] zombies;
+	return zombies;
 }
