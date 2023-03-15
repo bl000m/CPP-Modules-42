@@ -6,13 +6,13 @@
 #    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 14:57:39 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/15 13:14:51 by mpagani          ###   ########.fr        #
+#    Updated: 2023/03/15 13:39:50 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= zombie
 
-SRCS 	=  Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
+SRCS 	=  Zombie.cpp main.cpp zombieHorde.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
