@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:13 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/14 12:30:06 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/15 10:28:49 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Contact{
 		void	initContact();
 		void	display();
 		void	assigningIndex(int i);
-		int		getIndex();
+		int		getIndex() const;
 
 	private:
 

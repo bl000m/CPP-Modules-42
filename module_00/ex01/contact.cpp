@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:17 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/14 12:29:43 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/15 10:30:45 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	Contact::initContact(){
 	std::getline(std::cin, this->_darkestSecret);
 }
 
-int		Contact::getIndex(){
+int		Contact::getIndex() const {
 
 	return (this->_index);
 

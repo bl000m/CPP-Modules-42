@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:08:24 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/14 12:30:52 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/15 10:32:24 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,15 @@ void	Phonebook::searchContact(){
 
 	std::cout << "Enter record Index" << std::endl;
 	std::cin >> user_input;
-	if (user_input <= this->_contacts[user_input].getIndex())
-		this->_contacts[user_input].display();
-	else
+	if (user_input >= 0)
 	{
-		std::cout << "Index not valid, try again" << std::endl;
-		std::cin.clear();
-		std::cin.ignore(INT_MAX, '\n');
+		if (user_input <= this->_contacts[user_input].getIndex())
+		this->_contacts[user_input].display();
+		else
+		{
+			std::cout << "Index not valid, try again" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
+		}
 	}
 }
