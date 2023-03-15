@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:43:47 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/14 13:20:13 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/15 13:04:50 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ class Zombie {
 		std::string _name;
 
 };
+
+void 	randomChump( std::string name );
+Zombie* newZombie( std::string name );
 
 #endif
