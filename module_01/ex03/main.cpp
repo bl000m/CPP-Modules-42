@@ -1,35 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.class.hpp                                   :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 12:43:47 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 10:28:27 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/16 10:37:57 by mpagani           #+#    #+#             */
+/*   Updated: 2023/03/16 10:40:16 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_CLASS_HPP
-# define ZOMBIE_CLASS_HPP
+#include "Weapon.class.hpp"
 
-# include <iostream>
-
-class Zombie {
-
-	public:
-
-		Zombie();
-		~Zombie();
-		void	announce() const;
-		void	setName(std::string name) ;
-
-	private:
-
-		std::string _name;
-
-};
-
-Zombie* zombieHorde( int N, std::string name );
-
-#endif
+int	main(void){
+	return (0);
+}

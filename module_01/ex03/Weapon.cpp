@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.class.hpp                                   :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 12:43:47 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 10:28:27 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/16 10:21:35 by mpagani           #+#    #+#             */
+/*   Updated: 2023/03/16 10:40:37 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_CLASS_HPP
-# define ZOMBIE_CLASS_HPP
+#include "Weapon.class.hpp"
 
-# include <iostream>
+Weapon::Weapon(){
+	std::cout << "a new weapon instance has been created" << std::endl;
+}
 
-class Zombie {
+Weapon::~Weapon(){
+	std::cout << "a weapon instance has been deleted" << std::endl;
+}
 
-	public:
+std::string	Weapon::getType() const{
+	return (this->_type);
+}
 
-		Zombie();
-		~Zombie();
-		void	announce() const;
-		void	setName(std::string name) ;
-
-	private:
-
-		std::string _name;
-
-};
-
-Zombie* zombieHorde( int N, std::string name );
-
-#endif
+void	
