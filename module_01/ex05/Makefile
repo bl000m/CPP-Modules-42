@@ -6,7 +6,7 @@
 #    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 17:07:21 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/16 17:13:45 by mpagani          ###   ########.fr        #
+#    Updated: 2023/03/16 17:48:44 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ RM			= rm -rf
 
 OBJDIR = .objects
 
-FILES		= main harl
+FILES		= main Harl
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Arl.class.hpp
+HEADER		= Harl.class.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m

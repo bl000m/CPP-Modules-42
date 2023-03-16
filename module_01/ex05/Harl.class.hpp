@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:24 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 17:17:24 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/16 18:22:49 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HARL_CLASS_HPP
 
 #include <iostream>
+#include <vector>
 
 class Harl {
 
@@ -31,5 +32,7 @@ class Harl {
 		void error( void );
 
 };
+
+typedef void (Harl::*fun) (void);
 
 #endif
