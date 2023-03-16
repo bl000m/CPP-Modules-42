@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:14:26 by mathiapagan       #+#    #+#             */
-/*   Updated: 2023/03/16 13:51:35 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/03/16 16:48:00 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Sed{
 
   public:
 
-    Sed(std::string fileIn);
+    Sed(std::string filename);
     ~Sed();
     void  action(std::string s1, std::string s2);
 

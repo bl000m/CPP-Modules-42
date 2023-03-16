@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:29 by mathiapagan       #+#    #+#             */
-/*   Updated: 2023/03/16 16:37:44 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/03/16 16:53:10 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.class.hpp"
 
-Sed::Sed(std::string fileIn) : _fileIn(fileIn){
+Sed::Sed(std::string filename) : _fileIn(filename){
   this->_fileOut = this->_fileIn + ".replace";
-  std::cout << "constructor called and fileout set" << std::endl;
+  std::cout << "constructor called with fileIn: " << this->_fileIn << " and fileout set: " << this->_fileOut << std::endl;
 }
 
 Sed::~Sed(){
@@ -23,8 +23,8 @@ Sed::~Sed(){
 
 void  Sed::action(std::string s1, std::string s2){
   std::cout << "ACTION here" << std::endl;
-  std::ifstream input(this->_fileIn);
-  std::ofstream output(this->_fileOut);
+  std::ifstream input(this->_fileIn.c_str());
+  std::ofstream output(this->_fileOut.c_str());
   if (input.is_open())
   {
     std::string line;
