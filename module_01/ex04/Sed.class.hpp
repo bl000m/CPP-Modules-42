@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Sed.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 10:21:35 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 11:21:17 by mathiapagan      ###   ########.fr       */
+/*   Created: 2023/03/16 13:14:26 by mathiapagan       #+#    #+#             */
+/*   Updated: 2023/03/16 13:51:35 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.class.hpp"
+#ifndef SED_CLASS_HPP
+# define SED_CLASS_HPP
 
-Weapon::Weapon(std::string type) : _type(type){
-	std::cout << "a new weapon" << " of type " << this->_type << "has been created" << std::endl;
-}
+#include <iostream>
+#include <fstream>
 
-Weapon::~Weapon(){
-	std::cout << "a weapon instance has been deleted" << std::endl;
-}
+class Sed{
 
-const std::string&	Weapon::getType() const{
-	return (this->_type);
-}
+  public:
 
-void  Weapon::setType(std::string type){
-  this->_type = type;
-}
+    Sed(std::string fileIn);
+    ~Sed();
+    void  action(std::string s1, std::string s2);
+
+  private:
+
+    std::string _fileIn;
+    std::string _fileOut;
+
+};
+
+#endif

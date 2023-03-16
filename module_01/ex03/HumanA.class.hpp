@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 10:21:35 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 11:21:17 by mathiapagan      ###   ########.fr       */
+/*   Created: 2023/03/16 11:36:10 by mathiapagan       #+#    #+#             */
+/*   Updated: 2023/03/16 11:47:42 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANA_CLASS_HPP
+# define HUMANA_CLASS_HPP
+
 #include "Weapon.class.hpp"
 
-Weapon::Weapon(std::string type) : _type(type){
-	std::cout << "a new weapon" << " of type " << this->_type << "has been created" << std::endl;
-}
+class HumanA {
 
-Weapon::~Weapon(){
-	std::cout << "a weapon instance has been deleted" << std::endl;
-}
+  public:
+    HumanA(std::string name, Weapon& weapon);
+    ~HumanA();
+    void  attack();
 
-const std::string&	Weapon::getType() const{
-	return (this->_type);
-}
+  private:
+    std::string _name;
+    Weapon& _weapon;
 
-void  Weapon::setType(std::string type){
-  this->_type = type;
-}
+};
+
+#endif
