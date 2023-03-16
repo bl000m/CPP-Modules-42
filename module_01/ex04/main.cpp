@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:39:23 by mathiapagan       #+#    #+#             */
-/*   Updated: 2023/03/16 16:54:32 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/16 17:09:02 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int main(int argc, char **argv){
     return (1);
   }
   Sed replacingMachine(argv[1]);
-  std::cout << "MAIN here" << std::endl;
   replacingMachine.action(argv[2], argv[3]);
   return (0);
-
+  
 }
