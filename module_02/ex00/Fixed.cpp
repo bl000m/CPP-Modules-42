@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:57:38 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/17 14:08:13 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/17 15:05:58 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,22 @@ Fixed::~Fixed(){
 
 Fixed & Fixed::operator=( Fixed const & rightSource ){
 
-	std::cout << "Assignation operator called from" << this->_n;
-	std::cout << "and" << rightSource._n << std::endl;
+	std::cout << "Assignation operator called from " << this->_n;
+	std::cout << " and " << rightSource.getRawBits() << std::endl;
+
+	this->_n = rightSource.getRawBits();
+
+	return *this;
 
 }
 
 int		Fixed::getRawBits( void ) const{
 
+	return(this->_n);
+
 }
 void	Fixed::setRawBits( int const raw ){
+
+	this->_n = raw;
 
 }
