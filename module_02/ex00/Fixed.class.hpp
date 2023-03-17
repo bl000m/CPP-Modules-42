@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:44:43 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/17 13:56:41 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/17 14:01:23 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Fixed {
 	public:
 
 		Fixed();
-		Fixed( int n );
 		Fixed( Fixed const & source );
 		~Fixed();
 
