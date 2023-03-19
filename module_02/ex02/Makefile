@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
+#    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/17 13:46:07 by mpagani          ###   ########.fr        #
+#    Updated: 2023/03/19 10:39:50 by mathiapagan      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FILES		= main Fixed
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Fixed.class.hpp
+HEADER		= Fixed.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m
@@ -53,4 +53,3 @@ fclean: clean
 	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
 
 re: fclean all
-

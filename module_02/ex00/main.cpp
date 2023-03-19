@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:45:17 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/17 13:56:06 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/19 10:41:53 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
 int main( void ) {
 

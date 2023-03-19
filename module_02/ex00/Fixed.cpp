@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:57:38 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/17 15:28:09 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/19 10:42:03 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed() : _numFixedPoint(0){
 

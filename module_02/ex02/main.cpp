@@ -6,11 +6,11 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:45:17 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/18 17:42:14 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/03/19 10:40:01 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
 int main( void ) {
 

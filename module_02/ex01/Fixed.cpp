@@ -6,11 +6,11 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:57:38 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/18 15:41:29 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/03/19 10:40:42 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed() : _numFixedPoint(0){
 

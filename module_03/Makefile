@@ -6,11 +6,11 @@
 #    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/19 10:40:33 by mathiapagan      ###   ########.fr        #
+#    Updated: 2023/03/19 10:39:04 by mathiapagan      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= fixed
+NAME		= cliptrap
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -18,11 +18,11 @@ RM			= rm -rf
 
 OBJDIR = .objects
 
-FILES		= main Fixed
+FILES		= main
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Fixed.hpp
+HEADER		= Claptrap.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m

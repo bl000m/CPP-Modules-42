@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:44:43 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/18 17:42:45 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/03/19 10:39:26 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_CLASS_HPP
-# define FIXED_CLASS_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 #include <iostream>
 #include <cmath>
