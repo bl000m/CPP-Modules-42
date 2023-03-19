@@ -6,7 +6,7 @@
 #    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 17:07:21 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/16 13:36:02 by mathiapagan      ###   ########.fr        #
+#    Updated: 2023/03/19 09:46:55 by mathiapagan      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FILES		= main Sed
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Sed.class.hpp
+HEADER		= Sed.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m

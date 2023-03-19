@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:15 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 18:41:48 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/19 09:44:36 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.class.hpp"
+#include "Harl.hpp"
 
 Harl::Harl(){
 
@@ -19,7 +19,7 @@ Harl::Harl(){
 
 Harl::~Harl(){
 
-	std::cout << "disstructor called" << std::endl;
+	std::cout << "distructor called" << std::endl;
 
 }
 
@@ -35,7 +35,7 @@ void Harl::complain( std::string level ){
 			break ;
 		}
 	}
-	if (index < 4 && level != "EXIT")
+	if (level != "EXIT")
 		(this->*functions[index])();
 
 }

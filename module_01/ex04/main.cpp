@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:39:23 by mathiapagan       #+#    #+#             */
-/*   Updated: 2023/03/16 17:09:02 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/19 09:46:56 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.class.hpp"
+#include "Sed.hpp"
 
 int main(int argc, char **argv){
 
@@ -23,5 +23,5 @@ int main(int argc, char **argv){
   Sed replacingMachine(argv[1]);
   replacingMachine.action(argv[2], argv[3]);
   return (0);
-  
+
 }

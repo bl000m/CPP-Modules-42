@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:43:27 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/15 12:00:06 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/19 09:58:28 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.class.hpp"
+#include "Zombie.hpp"
 
 /*	zombie instance allocate on the stack
 	because instance not needs to be used outside this scope (no return)

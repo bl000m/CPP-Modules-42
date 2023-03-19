@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.class.hpp                                     :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 17:14:24 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 18:22:49 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/16 10:21:26 by mpagani           #+#    #+#             */
+/*   Updated: 2023/03/19 09:50:47 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_CLASS_HPP
-# define HARL_CLASS_HPP
+#ifndef ZOMBIE_CLASS_HPP
+#define ZOMBIE_CLASS_HPP
 
 #include <iostream>
-#include <vector>
 
-class Harl {
+class Weapon {
 
 	public:
 
-		Harl();
-		~Harl();
-		void complain( std::string level );
+		Weapon(std::string type);
+		~Weapon();
+		const std::string&	getType() const;
+		void	setType(std::string type);
 
 	private:
 
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
+		std::string _type;
 
 };
-
-typedef void (Harl::*fun) (void);
 
 #endif

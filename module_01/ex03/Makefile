@@ -6,7 +6,7 @@
 #    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 17:07:21 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/16 11:59:39 by mathiapagan      ###   ########.fr        #
+#    Updated: 2023/03/19 09:51:03 by mathiapagan      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FILES		= main Weapon HumanA HumanB
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Weapon.class.hpp
+HEADER		= Weapon.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m

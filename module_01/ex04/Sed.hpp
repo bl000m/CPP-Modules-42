@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.class.hpp                                      :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:14:26 by mathiapagan       #+#    #+#             */
-/*   Updated: 2023/03/16 16:48:00 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/19 09:46:28 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_CLASS_HPP
-# define SED_CLASS_HPP
+#ifndef SED_HPP
+# define SED_HPP
 
 #include <iostream>
 #include <fstream>

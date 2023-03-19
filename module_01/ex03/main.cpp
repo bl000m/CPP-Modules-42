@@ -6,13 +6,13 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:37:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 12:09:44 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/03/19 09:49:29 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.class.hpp"
-#include "HumanA.class.hpp"
-#include "HumanB.class.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {

@@ -6,11 +6,11 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:21:35 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/16 11:21:17 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/03/19 09:50:55 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.class.hpp"
+#include "Weapon.hpp"
 
 Weapon::Weapon(std::string type) : _type(type){
 	std::cout << "a new weapon" << " of type " << this->_type << "has been created" << std::endl;
