@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
+#    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/19 10:39:04 by mathiapagan      ###   ########.fr        #
+#    Updated: 2023/03/20 10:54:59 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= cliptrap
+NAME		= claptrap
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -18,7 +18,7 @@ RM			= rm -rf
 
 OBJDIR = .objects
 
-FILES		= main
+FILES		= main ClapTrap
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
