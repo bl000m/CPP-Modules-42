@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:05:47 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 13:22:27 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/20 13:28:15 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ ScavTrap::ScavTrap( std::string name ): ClapTrap(name){
 // }
 
 ScavTrap::~ScavTrap(){
-	std::cout << "Destructor called for " << this->_name << std::endl;
+	std::cout << "Destructor called for ScavTrap named " << this->_name << std::endl;
 }
