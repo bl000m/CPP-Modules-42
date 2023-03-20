@@ -6,7 +6,7 @@
 #    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/20 16:04:38 by mpagani          ###   ########.fr        #
+#    Updated: 2023/03/20 17:14:50 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ RM			= rm -rf
 
 OBJDIR = .objects
 
-FILES		= main Animal Dog
+FILES		= WrongAnimal main Animal Dog Cat WrongCat
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Animal.hpp Dog.hpp
+HEADER		= WrongAnimal.hpp Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m
@@ -32,7 +32,7 @@ RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
 
-.PHONY: all clean fclean re bonus norm
+.PHONY: all clean fclean re
 
 all: $(NAME)
 

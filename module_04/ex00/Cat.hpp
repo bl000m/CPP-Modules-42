@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 15:54:41 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 16:48:14 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/20 15:52:14 by mpagani           #+#    #+#             */
+/*   Updated: 2023/03/20 16:48:59 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#ifndef CAT_H
+#define CAT_H
 
-Dog::Dog(): Animal("Dog"){
-	std::cout << "Constructor called for " << this->_type << std:: endl;
-}
+#include "Animal.hpp"
 
-Dog::~Dog(){
-	std::cout << "Destructor called for " << this->_type << std:: endl;
-}
+class Cat: public Animal{
 
-void Dog::makeSound() const {
-	std::cout << "Ouaf ouaf !" << std::endl;
-}
+	public:
 
+		Cat();
+		~Cat();
+
+		void makeSound() const;
+
+	private:
+};
+
+#endif
