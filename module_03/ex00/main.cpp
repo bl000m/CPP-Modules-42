@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 10:55:48 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 11:01:24 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/20 10:55:19 by mpagani           #+#    #+#             */
+/*   Updated: 2023/03/20 12:23:32 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){
-	std::cout << "Constructor called" << std::endl
-}
+int main(){
 
-ClapTrap::ClapTrap(): name(_name){
-	std::cout << "Constructor called for claptrap named " << this->_name << std::endl
-}
+	ClapTrap Blurp("Blurp");
 
-ClapTrap::ClapTrap(const ClapTrap &source){
-	*this = source;
-	std::cout << "Copy constructor called for claptrap named " << this->_name << std::endl
-}
+	Blurp.attack("Vrum");
+	Blurp.takeDamage(4);
+	Blurp.takeDamage(4);
+	Blurp.takeDamage(4);
 
-ClapTrap::~ClapTrap(){
-	std::cout << "Destructor called" << std::endl
+	return (0);
 }

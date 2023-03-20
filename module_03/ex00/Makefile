@@ -6,7 +6,7 @@
 #    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/20 10:54:59 by mpagani          ###   ########.fr        #
+#    Updated: 2023/03/20 11:12:10 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FILES		= main ClapTrap
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Claptrap.hpp
+HEADER		= ClapTrap.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m
