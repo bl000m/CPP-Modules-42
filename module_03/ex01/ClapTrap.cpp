@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:55:48 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 13:28:27 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/20 14:23:22 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,13 @@ ClapTrap::~ClapTrap(){
 	std::cout << "Destructor called for Claptrap named " << this->_name << std::endl;
 }
 
-std::string ClapTrap::getName(){
-	return (this->_name);
-}
-
 ClapTrap & ClapTrap::operator=(const ClapTrap &rightHandSource){
 
 	this->_name = rightHandSource._name;
 	this->_hitPoints = rightHandSource._hitPoints;
 	this->_energyPoints = rightHandSource._energyPoints;
 	this->_attackDamage = rightHandSource._attackDamage;
+	std::cout << "ClapTrap " << _name << " has been copied " << std::endl;
 	return (*this);
 }
 

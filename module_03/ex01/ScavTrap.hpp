@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:06:02 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 13:20:31 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/20 14:17:02 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ class ScavTrap: public ClapTrap{
 
 	public:
 		ScavTrap( std::string name );
-		// ScavTrap( const ScavTrap &source);
+		ScavTrap(const ScavTrap &source);
 		~ScavTrap();
+
+		void attack( const std::string &target );
+		void guardGate();
 
 	private:
 		ScavTrap();

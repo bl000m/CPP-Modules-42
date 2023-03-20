@@ -6,11 +6,11 @@
 #    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/20 13:18:42 by mpagani          ###   ########.fr        #
+#    Updated: 2023/03/20 14:08:57 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= claptrap
+NAME		= scavtrap
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98

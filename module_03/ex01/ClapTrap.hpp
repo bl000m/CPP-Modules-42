@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:45:52 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 13:24:10 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/03/20 14:16:27 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class ClapTrap {
 		ClapTrap( const std::string name );
 		~ClapTrap();
 
-		std::string getName();
 		ClapTrap &operator=(const ClapTrap &rightHandSource);
 
 		void attack( const std::string &target );
