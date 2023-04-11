@@ -6,15 +6,15 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:55:48 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 14:55:14 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/11 16:06:00 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-// ClapTrap::ClapTrap(){
-// 	std::cout << "Constructor called" << std::endl;
-// }
+ClapTrap::ClapTrap(){
+	std::cout << "Constructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap( std::string name ): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "Constructor called for claptrap named " << this->_name << std::endl;

@@ -6,11 +6,15 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:05:47 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 14:18:23 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/11 16:07:06 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(){
+	std::cout << "Constructor called" << std::endl;
+}
 
 ScavTrap::ScavTrap( std::string name ): ClapTrap(name){
 	this->_hitPoints = 100;
