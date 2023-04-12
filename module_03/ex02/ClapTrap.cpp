@@ -6,15 +6,15 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:55:48 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 14:23:22 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/12 12:51:17 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-// ClapTrap::ClapTrap(){
-// 	std::cout << "Constructor called" << std::endl;
-// }
+ClapTrap::ClapTrap(){
+	std::cout << "ClapTrap Default Constructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap( std::string name ): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "Constructor called for Claptrap named " << this->_name << std::endl;
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap( std::string name ): _name(name), _hitPoints(10), _energyPoin
 
 ClapTrap::ClapTrap(const ClapTrap &source){
 	*this = source;
-	std::cout << "Copy constructor called for claptrap named " << this->_name << std::endl;
+	std::cout << "Copy constructor called for Claptrap named " << this->_name << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
@@ -35,7 +35,6 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &rightHandSource){
 	this->_hitPoints = rightHandSource._hitPoints;
 	this->_energyPoints = rightHandSource._energyPoints;
 	this->_attackDamage = rightHandSource._attackDamage;
-	std::cout << "ClapTrap " << _name << " has been copied " << std::endl;
 	return (*this);
 }
 

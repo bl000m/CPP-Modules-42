@@ -6,11 +6,15 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:05:47 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 14:39:09 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/12 12:22:34 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap() : ClapTrap(){
+	std::cout << "ScavTrap Default Constructor called" << std::endl;
+}
 
 ScavTrap::ScavTrap( std::string name ): ClapTrap(name){
 	this->_hitPoints = 100;
@@ -18,6 +22,10 @@ ScavTrap::ScavTrap( std::string name ): ClapTrap(name){
 	this->_attackDamage = 20;
 
 	std::cout << "Constructor called for ScavTrap named " << this->_name << std::endl;
+}
+
+ScavTrap::ScavTrap( const ScavTrap &source): ClapTrap(source){
+	std::cout << "Copy Constructor called for ScavTrap named " << this->_name << std::endl;
 }
 
 ScavTrap::~ScavTrap(){

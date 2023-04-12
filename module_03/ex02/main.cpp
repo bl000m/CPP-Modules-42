@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:55:19 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 14:46:39 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/12 12:39:52 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int main(){
 	Fragblurp.attack("a shadow");
 	FragblurpCopy.takeDamage(15);
 	FragblurpCopy.beRepaired(20);
-	FragblurpCopy.takeDamage(106);
 	Fragblurp.highFivesGuys();
+	FragblurpCopy.takeDamage(106);
 
 	return (0);
 }

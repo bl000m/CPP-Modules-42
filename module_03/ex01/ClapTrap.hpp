@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:45:52 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 14:16:27 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/12 11:09:17 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class ClapTrap {
 
 	public:
 
+		ClapTrap();
 		ClapTrap( const ClapTrap &source );
 		ClapTrap( const std::string name );
 		~ClapTrap();
@@ -31,8 +32,6 @@ class ClapTrap {
 
 
 	protected:
-
-		ClapTrap();
 
 		std::string 	_name;
 		unsigned int	_hitPoints;
