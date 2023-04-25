@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:57:09 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/25 17:53:56 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/25 22:13:24 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+
+class Bureaucrat;
 class Form {
 
 	public:

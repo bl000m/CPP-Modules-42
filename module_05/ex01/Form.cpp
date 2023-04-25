@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:56:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/25 17:54:08 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/25 22:33:40 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,11 @@ Form::Form(std::string name, int execGrade, int signGrade) :
 	std::cout << "A new Form is born, someone called him " << this->_name << std::endl;
 }
 
-Form::Form(Form const &src){
-	if (this != &src)
-	{
-		this->_name = src.getName();
-		this->_signed = src.getSigned();
-		this->_execGrade = src.getExecGrade();
-		this->_signGrade = src.getSignGrade();
-	}
+Form::Form(Form const &src):
+  _name(src._name), _signed(src._signed),
+  _execGrade(src._execGrade), _signGrade(src._signGrade)
+{
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 Form::~Form(){
@@ -55,10 +52,10 @@ const char* Form::GradeTooLowException::what() const throw(){
 
 Form & Form::operator=(Form const &rhs){
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = rhs.getName();
-		this->_signed = rhs.getSigned();
-		this->_execGrade = rhs.getExecGrade();
-		this->_signGrade = rhs.getSignGrade();
+		if (this != &rhs)
+      this->_signed = rhs.getSigned();
+		  // no other attributes assigned
+      // as constant not changeable
 	return *this;
 }
 
@@ -83,18 +80,16 @@ bool Form::getSigned() const {
 /* ------------ Custom functions ----------------*/
 
 void	Form::beSigned(Bureaucrat &bureaucrat){
-	if (bureaucrat.getGrade() >= this._signGrade)
-		this._signed = true;
+	if (bureaucrat.getGrade() >= this->_signGrade)
+		this->_signed = true;
 	else
 		throw Form::GradeTooLowException();
 }
 
-void	Form::signForm();
-
 /* ------------ Insertion («) operator ----------------*/
 
 std::ostream & operator<<(std::ostream & o, const Form &rhs){
-	if (this->signed)
+	if (rhs.getSigned() == true)
 	{
 		o << rhs.getName() << " form need a " << rhs.getExecGrade() << "grade to be executed"
 		<< "and a " << rhs.getSignGrade() << " grade to be signed. And by the way, it is already signed";
@@ -106,5 +101,3 @@ std::ostream & operator<<(std::ostream & o, const Form &rhs){
 	}
 	return o;
 }
-
-
