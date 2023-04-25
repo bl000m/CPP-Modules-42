@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 10:04:58 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/21 10:22:04 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:17:11 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ Brain::Brain(){
 }
 
 Brain::Brain(const Brain &source){
-		*this = source;
+	*this = source;
 }
 
 Brain &Brain::operator=(const Brain &source){
 	if (this != &source){
 		for (int i = 0; i < 100; i++){
-			this->_ideas[i] = source._ideas[i];
+			this->ideas[i] = source.ideas[i];
 		}
 	}
 	return *this;

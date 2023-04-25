@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:52:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/21 10:40:21 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:02:06 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ class Cat: public Animal{
 		~Cat();
 		Cat(const Cat &source);
 		Cat &operator=(const Cat &rightHandSide);
+		Animal &operator=(const Animal &rightHandSide);
 
 		void makeSound() const;
+
+		Brain *getBrain() const;
 
 	private:
 

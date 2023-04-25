@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:20 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 09:55:04 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/06 10:30:58 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ int	main() {
 	std::string input;
 
 	while (input.compare("EXIT")){
+		phonebook.options();
 		std::cout << "> " << std::flush;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (1);
 		if (!input.compare("ADD"))
 			phonebook.addContact();
 		else if (!input.compare("SEARCH"))

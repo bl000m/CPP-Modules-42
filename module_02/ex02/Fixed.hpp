@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:44:43 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 10:39:26 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/11 15:15:07 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,10 @@ class Fixed {
 		int 	toInt( void ) const;
 
     // overloaded member functions
-    /* A static member function is independent of any object of the class.
-    A static member function can be called even if no objects of the class exist.
-    A static member function can also be accessed using the class name through the scope resolution operator.
-    A static member function can access static data members and static member functions inside or outside of the class.
-    Static member functions have a scope inside the class and cannot access the current object pointer.
-You can also use a static member function to determine how many objects of the class have been created.
-    The reason we need Static member function:
-    Static members are frequently used to store information that is shared by all objects in a class.
-    For instance, you may keep track of the quantity of newly generated objects of a specific class type using a static data member as a counter. This static data member can be increased each time an object is generated to keep track of the overall number of objects. */
-    static Fixed& min(Fixed &leftSource, Fixed &rightSource);
-    static const Fixed& min(const Fixed &leftSource, const Fixed &rightSource);
-    static Fixed& max(Fixed &leftSource, Fixed &rightSource);
-    static const Fixed& max(const Fixed &leftSource, const Fixed &rightSource);
+		static Fixed& min(Fixed &leftSource, Fixed &rightSource);
+		static const Fixed& min(const Fixed &leftSource, const Fixed &rightSource);
+		static Fixed& max(Fixed &leftSource, Fixed &rightSource);
+		static const Fixed& max(const Fixed &leftSource, const Fixed &rightSource);
 
     // copy assignment operator overload
 		Fixed & operator=( const Fixed &rightSource );
@@ -65,9 +56,9 @@ You can also use a static member function to determine how many objects of the c
 
     // 4 increment/decrement (pre-increment and post-increment, pre-decrement and post-decrement) operators
 		Fixed & operator++( void );
-		Fixed operator++( int /* source */ );
+		Fixed operator++( int );
 		Fixed & operator--( void );
-		Fixed operator--( int /* source */ );
+		Fixed operator--( int );
 
 
 	private:

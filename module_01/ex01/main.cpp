@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:42:31 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 10:19:53 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/07 12:20:15 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void){
 
 	std::string name;
 
-	std::cout << "creating << N << orde of zombies" << std::endl;
+	std::cout << "creating an orde of zombies" << std::endl;
 	std::cout << "please write a name for them: " << std::endl;
 	std::cin >> name;
 

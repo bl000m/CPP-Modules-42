@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:27:10 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 16:43:24 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:40:40 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Animal {
 		Animal();
 		Animal(std::string type);
 		Animal(const Animal &source);
-		// why virtual ?
 		virtual ~Animal();
 
 		Animal &operator=(const Animal &rightHandSide);
@@ -31,6 +30,7 @@ class Animal {
 		virtual void makeSound() const ;
 
 	protected:
+
 		std::string	_type;
 
 };

@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:13 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 09:55:16 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/06 11:15:51 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include <iostream> // std::cout std::endl
-#include <iomanip> // set::setw
+#include <iostream>
+#include <iomanip>
 
 class Contact{
 
-	//member attributes
 	public:
 
 		Contact();

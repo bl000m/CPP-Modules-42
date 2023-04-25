@@ -6,18 +6,18 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:34:02 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/13 15:40:41 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/18 10:37:04 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(): _type("not defined"){
-	std::cout << "Constructor called for animal without any type" << std:: endl;
-}
-
 Animal::Animal(std::string type): _type(type){
 	std::cout << "Constructor called for animal with type " << this->_type << std:: endl;
+}
+
+Animal::Animal(): _type("not defined"){
+	std::cout << "Constructor called for animal without any type" << std:: endl;
 }
 
 Animal::Animal(const Animal &source){
@@ -30,15 +30,9 @@ std::string Animal::getType() const{
 }
 
 Animal &Animal::operator=(const Animal &rightHandSide){
-	if (this != &rightHandSide)
-		this->_type = rightHandSide._type;
+	this->_type = rightHandSide._type;
 	return *this;
 }
-
-void Animal::makeSound() const {
-	std::cout << "Animal makeSound func called" << std::endl;
-}
-
 
 Animal::~Animal(){
 	std::cout << "Destructor called for animal with type " << this->_type << std:: endl;

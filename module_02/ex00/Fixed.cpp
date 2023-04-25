@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:57:38 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 10:42:03 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/11 11:45:23 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed() : _numFixedPoint(0){
 
-	std::cout << "Default constructor called, n initialized with 0 value" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 
 	return;
 
@@ -39,8 +39,7 @@ Fixed::~Fixed(){
 
 Fixed & Fixed::operator=( Fixed const & rightSource ){
 
-	std::cout << "Assignation operator called from " << this->_numFixedPoint;
-	std::cout << " and " << rightSource.getRawBits() << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 
 	this->_numFixedPoint = rightSource.getRawBits();
 
@@ -50,6 +49,7 @@ Fixed & Fixed::operator=( Fixed const & rightSource ){
 
 int		Fixed::getRawBits( void ) const{
 
+	std::cout << "getRawBits member function called" << std::endl;
 	return(this->_numFixedPoint);
 
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
+#    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 17:07:21 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/19 09:44:34 by mathiapagan      ###   ########.fr        #
+#    Updated: 2023/04/07 13:32:40 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,20 +25,17 @@ OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 HEADER		= Harl.hpp
 
 #Colors:
-GREEN		=	\e[92;5;118m
 YELLOW		=	\e[93;5;226m
-GRAY		=	\e[33;2;37m
-RESET		=	\e[0m
-CURSIVE		=	\e[33;3m
+BACK_WHITE	=	\e[0m
 
-
-.PHONY: all clean fclean re bonus norm
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
+$(NAME): $(OBJ) $(HEADER) Makefile
 	@$(CC) $(OBJ) -o $(NAME)
-	@printf "$(_SUCCESS) $(GREEN)- Executable ready.\n$(RESET)"
+	@printf "\nI created the executable. Now you can enter $(YELLOW)./harl$(BACK_WHITE) to launch it.\n"
+	@printf "Or enter $(YELLOW)make fclean; make -n; make$(BACK_WHITE) to see how I compile.\n\n"
 
 $(OBJDIR)/%.o: %.cpp $(HEADER)
 	@mkdir -p $(dir $@)
@@ -46,10 +43,10 @@ $(OBJDIR)/%.o: %.cpp $(HEADER)
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
-	@printf "$(YELLOW)    - Object files removed.$(RESET)\n"
+	@printf "\nI removed all the object files as you asked\n\n"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
+	@printf "I removed the executable as you asked\n\n"
 
 re: fclean all

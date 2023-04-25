@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:26:34 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/21 11:09:02 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/13 15:45:08 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,35 @@
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const Animal* a = new Animal();
-	j->makeSound();
-	i->makeSound();
-	a->makeSound();
-	delete j;
-	delete i;
-	delete a;
+	{
+		Animal *animals[10];
+		for (int i = 0; i < 10; i++) {
+			if (i % 2) {
+				animals[i] = new Dog();
+			} else {
+				animals[i] = new Cat();
+			}
+		}
+		for (int i = 0; i < 10; i++) {
+			delete animals[i];
+		}
+	}
+	{
+		Animal *animals[2];
+		animals[0] = new Dog();
+		animals[1] = new Cat();
 
-	const Animal* animals[6] = {new Dog(), new Dog(), new Dog(), new Cat(), new Cat(), new Cat()};
-	for (int i = 0; i < 6; i++)
-		delete animals[i];
+		Brain *brain = animals[1]->getBrain();
+		brain->ideas[0] = "test";
+		brain->ideas[1] = "idea";
+		std::cout << "-------- Assigment operator --------" << std::endl;
+		*(animals[0]) = *(animals[1]);
+		std::cout << "-------- Brain content --------" << std::endl;
+		std::cout << animals[0]->getBrain()->ideas[0] << std::endl;
+		std::cout << animals[0]->getBrain()->ideas[1] << std::endl;
+		std::cout << "-------- Destructors --------" << std::endl;
+		delete animals[0];
+		delete animals[1];
+	}
 	return 0;
 }

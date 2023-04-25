@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:15 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 09:44:36 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/07 14:11:37 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,19 @@ void Harl::complain( std::string level ){
 	std::string levels [] = { "DEBUG", "INFO", "WARNING", "ERROR"};
 	int index = 0;
 
-	for (int i = 0; i < 4; i ++){
-		if (!levels[i].compare(level)){
-			index = i;
-			break ;
-		}
-	}
-	if (level != "EXIT")
+	while (index < 4 && levels[index].compare(level))
+		index++;
+	if (index < 4)
 		(this->*functions[index])();
+	else
+	{
+		if (level != "EXIT")
+			std::cout << "You would better write the level's name exactly as it is..." << std::endl;
+		else
+			std::cout << "Bye bye !" << std::endl;
+
+	}
+
 
 }
 

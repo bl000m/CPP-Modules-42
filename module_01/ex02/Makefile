@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
+#    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 14:57:39 by mpagani           #+#    #+#              #
-#    Updated: 2023/03/19 10:22:28 by mathiapagan      ###   ########.fr        #
+#    Updated: 2023/04/07 12:27:34 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,20 +24,17 @@ SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
 #Colors:
-GREEN		=	\e[92;5;118m
 YELLOW		=	\e[93;5;226m
-GRAY		=	\e[33;2;37m
-RESET		=	\e[0m
-CURSIVE		=	\e[33;3m
+BACK_WHITE	=	\e[0m
 
-
-.PHONY: all clean fclean re bonus norm
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 	@$(CC) $(OBJ) -o $(NAME)
-	@printf "$(_SUCCESS) $(GREEN)- Executable ready.\n$(RESET)"
+	@printf "\nI created the executable. Now you can enter $(YELLOW)./zombie$(BACK_WHITE) to launch it.\n"
+	@printf "Or enter $(YELLOW)make fclean; make -n; make$(BACK_WHITE) to see how I compile.\n\n"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
@@ -45,10 +42,10 @@ $(OBJDIR)/%.o: %.cpp
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
-	@printf "$(YELLOW)    - Object files removed.$(RESET)\n"
+	@printf "\nI removed all the object files as you asked\n\n"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
+	@printf "I removed the executable as you asked\n\n"
 
 re: fclean all

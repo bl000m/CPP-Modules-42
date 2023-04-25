@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:26:34 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 17:26:04 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/13 15:41:23 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ int main()
 	const Animal* i = new Cat();
 	const WrongAnimal* wmeta = new WrongAnimal();
 	const WrongAnimal* w = new WrongCat();
+
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << w->getType() << " " << std::endl;
 	j->makeSound();
-	i->makeSound(); //will output the cat sound!
-	w->makeSound(); //will output the wrong cat sound!
+	i->makeSound(); //cat
+	w->makeSound(); //wrong cat
 	meta->makeSound();
 	delete j;
 	delete i;

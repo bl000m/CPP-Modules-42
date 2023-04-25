@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 15:27:10 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/21 11:22:42 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/11 14:57:31 by mpagani           #+#    #+#             */
+/*   Updated: 2023/04/06 11:38:35 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_H
-#define AANIMAL_H
-
 #include <iostream>
 
-class AAnimal {
+int	main(int argc, char **argv)
+{
+	int	i;
+	int	j;
+	std::string input;
 
-	public:
-
-		AAnimal();
-		AAnimal(std::string type);
-		AAnimal(const AAnimal &source);
-		// why virtual ?
-		virtual ~AAnimal();
-
-		AAnimal &operator=(const AAnimal &rightHandSide);
-
-		std::string getType() const;
-		virtual void makeSound() const = 0;
-
-	protected:
-		std::string	_type;
-
-};
-
-#endif
+	i = 1;
+	if (argc > 1)
+	{
+		while (argv[i])
+		{
+			j = 0;
+			input = argv[i];
+			while (input[j])
+				std::cout << (char)toupper(input[j++]);
+			if (i < argc - 1)
+				std::cout << " ";
+			i++;
+		}
+	}
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	std::cout << std::endl;
+	return (0);
+}

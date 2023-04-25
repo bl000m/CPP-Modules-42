@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:42:17 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 09:57:47 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/06 10:40:54 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ Contact::~Contact()
 {
 	std::cout << "Contact destructor called" << std::endl;
 }
-
-// std::string	Contact::_getInput(std::string str) const {
-
-// }
 
  std::string	Contact::_printFirstTenChar(std::string str) const{
 	if (str.length() > 10)

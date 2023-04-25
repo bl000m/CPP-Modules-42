@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:21:35 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 09:50:55 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/07 12:31:09 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
 Weapon::Weapon(std::string type) : _type(type){
-	std::cout << "a new weapon" << " of type " << this->_type << "has been created" << std::endl;
+	std::cout << "a new weapon" << " of type " << this->_type << " has been created" << std::endl;
 }
 
 Weapon::~Weapon(){

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:44:43 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 10:41:28 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/11 12:21:20 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Fixed {
 		Fixed & operator=( Fixed const & rightSource );
 
 		int		getRawBits( void ) const;
-		void	setRawBits( int const raw ) ;
+		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int 	toInt( void ) const;
 

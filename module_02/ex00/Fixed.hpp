@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:44:43 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/19 10:41:58 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/11 11:46:23 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class Fixed {
 
 		int _numFixedPoint;
 		static const int _bits = 8;
-
 
 };
 

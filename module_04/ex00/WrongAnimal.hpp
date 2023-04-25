@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:27:10 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/20 17:27:43 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/13 13:52:57 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class WrongAnimal {
 		WrongAnimal();
 		WrongAnimal(std::string type);
 		WrongAnimal(const WrongAnimal &source);
-		// why virtual ?
 		virtual ~WrongAnimal();
 
 		WrongAnimal &operator=(const WrongAnimal &rightHandSide);

@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 14:57:31 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/11 17:03:26 by mpagani          ###   ########.fr       */
+/*   Created: 2023/03/20 15:27:10 by mpagani           #+#    #+#             */
+/*   Updated: 2023/04/18 10:37:11 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ANIMAL_H
+#define ANIMAL_H
+
+#include "Brain.hpp"
+
 #include <iostream>
 
-int	main(int argc, char **argv)
-{
-	int	i;
-	int	j;
-	std::string input;
+class Animal {
 
-	i = 1;
-	if (argc > 1)
-	{
-		while (i < argc)
-		{
-			j = 0;
-			input = argv[i];
-			while (input[j])
-				std::cout << (char)toupper(input[j++]);
-			i++;
-		}
-		std::cout << " ";
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << std::endl;
-	return (0);
-}
+	public:
+
+		Animal();
+		Animal(std::string type);
+		Animal(const Animal &source);
+		virtual ~Animal();
+
+		virtual Animal &operator=(const Animal &rightHandSide);
+
+		std::string getType() const;
+		virtual void makeSound() const = 0;
+
+		virtual Brain *getBrain() const = 0;
+
+	protected:
+		std::string	_type;
+
+};
+
+#endif

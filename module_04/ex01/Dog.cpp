@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:54:41 by mpagani           #+#    #+#             */
-/*   Updated: 2023/03/21 10:59:22 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:17:28 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,19 @@ Dog::Dog(const Dog &source): Animal("Dog"){
 }
 
 Dog &Dog::operator=(const Dog &rightHandSide){
-	std::cout << "Dog copy called in Dog class (deep copy)" << std::endl;
+	std::cout << "Dog copy Assignment called for " << this->_type << std:: endl;
 	if (this != &rightHandSide){
 		this->_type = rightHandSide._type;
-		this->_brain = new Brain(*rightHandSide._brain);
+		*(this->_brain) = *(rightHandSide.getBrain());
+	}
+	return *this;
+}
+
+Animal &Dog::operator=(const Animal &rightHandSide){
+	std::cout << "Animal copy Assignment called for " << this->_type << std:: endl;
+	if (this != &rightHandSide){
+		this->_type = rightHandSide.getType();
+		*(this->_brain) = *(rightHandSide.getBrain());
 	}
 	return *this;
 }
@@ -37,5 +46,9 @@ Dog::~Dog(){
 
 void Dog::makeSound() const {
 	std::cout << "Ouaf ouaf !" << std::endl;
+}
+
+Brain *Dog::getBrain() const {
+	return this->_brain;
 }
 
