@@ -1,0 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/25 16:57:09 by mpagani           #+#    #+#             */
+/*   Updated: 2023/04/26 16:07:07 by mathiapagan      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FORM_H
+# define FORM_H
+
+#include <iostream>
+#include "Bureaucrat.hpp"
+
+
+class Bureaucrat;
+class AForm {
+
+	public:
+		// Form();
+		AForm(std::string name, int execGrade, int signGrade);
+		AForm(AForm const &src);
+		virtual ~AForm();
+
+		class GradeTooHighException : public std::exception{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception{
+			public:
+				virtual const char* what() const throw();
+		};
+
+    class NotSignedException : public std::exception{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		AForm & operator=(AForm const &rhs);
+		std::string getName() const;
+		int getExecGrade() const;
+		int getSignGrade() const;
+		bool getSigned() const;
+
+		void	beSigned(Bureaucrat &bureaucrat);
+    virtual void execute(Bureaucrat const & executor) const = 0;
+
+	private:
+		const std::string	_name;
+		bool				_signed;
+		int					_execGrade;
+		int					_signGrade;
+
+};
+
+std::ostream & operator<<(std::ostream & o, const AForm &rhs);
+
+#endif
