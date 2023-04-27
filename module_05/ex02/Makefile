@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+         #
+#    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/04/26 15:21:32 by mathiapagan      ###   ########.fr        #
+#    Updated: 2023/04/27 13:15:59 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ RM			= rm -rf
 OBJDIR = .objects
 
 FILES		= main Bureaucrat AForm ShrubberyCreationForm \
-					# PresidentialPardonAForm RobotomyRequestForm
+			  RobotomyRequestForm PresidentialPardonForm
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 HEADER		= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp \
-					# PresidentialPardonAForm.hpp RobotomyRequestAForm.hpp
+			  RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
 #Colors:
 YELLOW		=	\e[93;5;226m

@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:56:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 16:11:45 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/27 13:18:32 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-// AForm::AForm(){
-
-// }
+AForm::AForm(){
+}
 
 AForm::AForm(std::string name, int execGrade, int signGrade) :
 	_name(name), _signed(false), _execGrade(execGrade), _signGrade(signGrade){
@@ -45,7 +44,7 @@ const char* AForm::GradeTooLowException::what() const throw(){
 }
 
 const char* AForm::NotSignedException::what() const throw(){
-	return "fil not signed. Can't be executed.";
+	return "The file has not been signed yet. So it can't be executed. Sign it first fellow !";
 }
 
 /* ------------ operators (=) overload ----------------*/
