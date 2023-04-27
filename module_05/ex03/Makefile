@@ -6,7 +6,7 @@
 #    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/04/27 13:15:59 by mpagani          ###   ########.fr        #
+#    Updated: 2023/04/27 15:10:43 by mpagani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ RM			= rm -rf
 OBJDIR = .objects
 
 FILES		= main Bureaucrat AForm ShrubberyCreationForm \
-			  RobotomyRequestForm PresidentialPardonForm
+			  RobotomyRequestForm PresidentialPardonForm Intern
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 HEADER		= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp \
-			  RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+			  RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 
 #Colors:
 YELLOW		=	\e[93;5;226m
