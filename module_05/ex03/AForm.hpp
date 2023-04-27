@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:57:09 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 19:14:54 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/26 16:07:07 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 
 
 class Bureaucrat;
-class Form {
+class AForm {
 
 	public:
-		Form(std::string name, int execGrade, int signGrade);
-		Form(Form const &src);
-		virtual ~Form();
+		// Form();
+		AForm(std::string name, int execGrade, int signGrade);
+		AForm(AForm const &src);
+		virtual ~AForm();
 
 		class GradeTooHighException : public std::exception{
 			public:
@@ -35,23 +36,28 @@ class Form {
 				virtual const char* what() const throw();
 		};
 
-		Form & operator=(Form const &rhs);
+    class NotSignedException : public std::exception{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		AForm & operator=(AForm const &rhs);
 		std::string getName() const;
 		int getExecGrade() const;
 		int getSignGrade() const;
 		bool getSigned() const;
 
 		void	beSigned(Bureaucrat &bureaucrat);
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
 	private:
 		const std::string	_name;
 		bool				_signed;
 		int					_execGrade;
 		int					_signGrade;
-		// Form();
 
 };
 
-std::ostream & operator<<(std::ostream & o, const Form &rhs);
+std::ostream & operator<<(std::ostream & o, const AForm &rhs);
 
 #endif

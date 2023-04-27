@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:41:15 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/25 16:44:50 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/26 19:15:32 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-// Bureaucrat::Bureaucrat(){
-
-// }
+Bureaucrat::Bureaucrat(){
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade){
 
@@ -23,7 +22,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		else if (this->_grade < 1)
 			throw Bureaucrat::GradeTooLowException();
 
-	std::cout << "A new Bureaucrat is born, someone called him " << this->_name << " and gacve him grade " << this->_grade << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src){
@@ -35,7 +33,6 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src){
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << "Bureacrat " << this->_name << " is dead" << std::endl;
 }
 
 /* ------------ Exception class what func ----------------*/
@@ -51,7 +48,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw(){
 /* ------------ operators (=) overload ----------------*/
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs){
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_name = rhs.getName();
 	this->_grade = rhs.getGrade();
 	return *this;
@@ -88,4 +84,3 @@ void Bureaucrat::decrementGrade(){
 	else
 		throw Bureaucrat::GradeTooLowException();
 }
-

@@ -6,7 +6,7 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:21:04 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 15:51:20 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/26 19:20:50 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class AForm;
 class Bureaucrat {
 
 	public:
-		// Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat const &src);
 		virtual ~Bureaucrat();
@@ -46,6 +45,7 @@ class Bureaucrat {
 	private:
 		std::string	_name;
 		int			_grade;
+		Bureaucrat();
 
 };
 
