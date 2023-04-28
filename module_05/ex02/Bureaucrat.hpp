@@ -6,12 +6,12 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:21:04 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 19:20:40 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/28 11:14:46 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-# define BUREAUCRAT_H
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <iostream>
 #include "AForm.hpp"

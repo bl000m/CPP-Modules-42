@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:40:20 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/27 15:10:15 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/28 11:11:59 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,19 @@ int main() {
 
 		Intern someRandomIntern;
 		AForm* rrf;
+    AForm* rrf2;;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    if (rrf == NULL)
+      return (1);
+    bur.executeForm(*rrf);
+		bur.signForm(*rrf);
+    bur.executeForm(*rrf);
+    std::cout << "HERE" << std::endl;
+    rrf2 = someRandomIntern.makeForm("robotomy request", "Other");
+    bur.signForm(*rrf2);
+    bur.executeForm(*rrf2);
+    delete rrf;
+    delete rrf2;
 	}
 	catch (std::exception & e) {
 		std::cerr << e.what() << std::endl;

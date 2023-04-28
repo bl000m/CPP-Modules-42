@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:28:33 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/27 15:12:28 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/28 10:20:25 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Intern & Intern::operator=(Intern const &rhs){
 
 /* ------------ operators (=) overload ----------------*/
 
-AForm *makeForm(std::string name, std::string target){
+AForm *Intern::makeForm(const std::string &name, const std::string &target){
 	AForm 	*form;
 	int		index;
 

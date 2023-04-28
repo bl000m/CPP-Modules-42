@@ -17,10 +17,11 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     throw AForm::GradeTooLowException();
   else if (!this->getSigned())
     throw AForm::NotSignedException();
-  std::cout << "trrrrrrrrr trrrrrrrrr trrrrrrrrrrr" << std::endl;
-  if (rand % 2 == 0)
-	std::cout << this->_target << " has been robotized" << std::endl;
+  if (rand % 2 == 0){
+    std::cout << "trrrrrrrrr trrrrrrrrr trrrrrrrrrrr" << std::endl;
+    std::cout << this->_target << " has been robotized" << std::endl;
+  }
   else
-	std::cout << "Fail: " << this->_target<< " has not been robotized" << std::endl;
+	  std::cout << "Fail: " << this->_target<< " has not been robotized 'cause destiny do it half the times" << std::endl;
   rand++;
 }
