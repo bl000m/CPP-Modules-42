@@ -6,7 +6,7 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:56:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 19:14:36 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 11:41:13 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,22 @@ Form::Form(Form const &src):
 }
 
 Form::~Form(){
-	std::cout << "Form " << this->_name << " is dead" << std::endl;
 }
 
 /* ------------ Exception class what func ----------------*/
 
 const char* Form::GradeTooHighException::what() const throw(){
-	return "Too high grade: grade must be btw 1 and 150";
+	return "too high grade";
 }
 
 const char* Form::GradeTooLowException::what() const throw(){
-	return "Too low grade: grade must be btw 1 and 150";
+	return "too low grade";
 }
 
 /* ------------ operators (=) overload ----------------*/
 
 /* no other attributes assigned as constant not changeable */
 Form & Form::operator=(Form const &rhs){
-	std::cout << "Copy assignment operator called" << std::endl;
 		if (this != &rhs)
       this->_signed = rhs.getSigned();
 	return *this;
@@ -74,7 +72,7 @@ bool Form::getSigned() const {
 /* ------------ Custom functions ----------------*/
 
 void	Form::beSigned(Bureaucrat &bureaucrat){
-	if (bureaucrat.getGrade() >= this->_signGrade)
+	if (bureaucrat.getGrade() <= this->_signGrade)
 		this->_signed = true;
 	else
 		throw Form::GradeTooLowException();
@@ -83,15 +81,12 @@ void	Form::beSigned(Bureaucrat &bureaucrat){
 /* ------------ Insertion («) operator ----------------*/
 
 std::ostream & operator<<(std::ostream & o, const Form &rhs){
+  o << "Form '" << rhs.getName() << "' need:" << std::endl;
+  o << "- grade " << rhs.getSignGrade() << " to be signed " << std::endl;
+  o << "- grade " << rhs.getExecGrade() << " to be executed " << std::endl;
 	if (rhs.getSigned() == true)
-	{
-		o << rhs.getName() << " Form need a " << rhs.getExecGrade() << "grade to be executed"
-		<< "and a " << rhs.getSignGrade() << " grade to be signed. And by the way, it is already signed";
-	}
-	else
-	{
-		o << rhs.getName() << " Form need a " << rhs.getExecGrade() << "grade to be executed"
-		<< "and a " << rhs.getSignGrade() << " grade to be signed. And by the way, it is still to be signed";
-	}
+    o << "And by the way, it is already signed" << std::endl;
+  else
+    o << "And by the way, it is still to be signed" << std::endl;
 	return o;
 }

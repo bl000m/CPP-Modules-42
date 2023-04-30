@@ -6,12 +6,12 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:57:09 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 19:14:54 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/28 11:24:55 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
@@ -48,7 +48,7 @@ class Form {
 		bool				_signed;
 		int					_execGrade;
 		int					_signGrade;
-		// Form();
+		Form();
 
 };
 

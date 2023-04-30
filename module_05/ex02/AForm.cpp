@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:56:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/27 13:18:32 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/30 13:39:34 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool AForm::getSigned() const {
 /* ------------ Custom functions ----------------*/
 
 void	AForm::beSigned(Bureaucrat &bureaucrat){
-	if (bureaucrat.getGrade() >= this->_signGrade)
+	if (bureaucrat.getGrade() <= this->_signGrade)
 		this->_signed = true;
 	else
 		throw AForm::GradeTooLowException();
@@ -87,15 +87,12 @@ void	AForm::beSigned(Bureaucrat &bureaucrat){
 /* ------------ Insertion («) operator ----------------*/
 
 std::ostream & operator<<(std::ostream & o, const AForm &rhs){
+  o << "Form '" << rhs.getName() << "' need:" << std::endl;
+  o << "- grade " << rhs.getSignGrade() << " to be signed " << std::endl;
+  o << "- grade " << rhs.getExecGrade() << " to be executed " << std::endl;
 	if (rhs.getSigned() == true)
-	{
-		o << rhs.getName() << " AForm need a " << rhs.getExecGrade() << "grade to be executed"
-		<< "and a " << rhs.getSignGrade() << " grade to be signed. And by the way, it is already signed";
-	}
-	else
-	{
-		o << rhs.getName() << " AForm need a " << rhs.getExecGrade() << "grade to be executed"
-		<< "and a " << rhs.getSignGrade() << " grade to be signed. And by the way, it is still to be signed";
-	}
+    o << "And by the way, it is already signed" << std::endl;
+  else
+    o << "And by the way, it is still to be signed" << std::endl;
 	return o;
 }

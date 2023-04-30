@@ -6,7 +6,7 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:41:15 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 19:11:00 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 11:42:49 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 			throw Bureaucrat::GradeTooHighException();
 		else if (this->_grade < 1)
 			throw Bureaucrat::GradeTooLowException();
+    std::cout << "A bureaucrat named " << this->_name << " makes his entrance into the office, proudly displaying grade " << this->_grade << " on his shirt." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src){
@@ -90,6 +91,6 @@ void Bureaucrat::signForm(Form &form){
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
 	catch (Form::GradeTooLowException &e){
-		std::cout << this->getName() << " couldn't sign " << form.getName() << "because " << e.what() << std::endl;
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because: " << e.what() << std::endl;
 	}
 }

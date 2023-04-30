@@ -6,7 +6,7 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:57:09 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/28 11:14:40 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 13:53:57 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class AForm {
 		bool getSigned() const;
 
 		void	beSigned(Bureaucrat &bureaucrat);
-    	virtual void execute(Bureaucrat const & executor) const = 0;
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
 	private:
 		const std::string	_name;

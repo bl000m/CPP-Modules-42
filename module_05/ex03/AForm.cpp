@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:56:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/27 13:18:32 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/30 13:00:18 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool AForm::getSigned() const {
 /* ------------ Custom functions ----------------*/
 
 void	AForm::beSigned(Bureaucrat &bureaucrat){
-	if (bureaucrat.getGrade() >= this->_signGrade)
+	if (bureaucrat.getGrade() <= this->_signGrade)
 		this->_signed = true;
 	else
 		throw AForm::GradeTooLowException();

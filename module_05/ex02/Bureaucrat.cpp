@@ -6,15 +6,14 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:41:15 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/26 16:11:27 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 11:49:07 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-// Bureaucrat::Bureaucrat(){
-
-// }
+Bureaucrat::Bureaucrat(){
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade){
 
@@ -22,7 +21,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 			throw Bureaucrat::GradeTooHighException();
 		else if (this->_grade < 1)
 			throw Bureaucrat::GradeTooLowException();
-
+    std::cout << "A bureaucrat named " << this->_name << " makes his entrance into the office, proudly displaying grade " << this->_grade << " on his shirt." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src){
@@ -39,11 +38,11 @@ Bureaucrat::~Bureaucrat(){
 /* ------------ Exception class what func ----------------*/
 
 const char* Bureaucrat::GradeTooHighException::what() const throw(){
-	return "too high grade";
+	return "Too high grade: grade must be btw 1 and 150";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
-	return "too low grade";
+	return "Too low grade: grade must be btw 1 and 150";
 }
 
 /* ------------ operators (=) overload ----------------*/

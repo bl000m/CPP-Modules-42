@@ -13,10 +13,11 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
   static int rand;
 
-  if (executor.getGrade() < this->getExecGrade())
+  if (this->getSigned() == false)
+        throw AForm::NotSignedException();
+  else if (executor.getGrade() < this->getExecGrade())
     throw AForm::GradeTooLowException();
-  else if (!this->getSigned())
-    throw AForm::NotSignedException();
+
   if (rand % 2 == 0){
     std::cout << "trrrrrrrrr trrrrrrrrr trrrrrrrrrrr" << std::endl;
     std::cout << this->_target << " has been robotized" << std::endl;
