@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:21:04 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/28 11:14:02 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 17:24:25 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ class Intern {
 
 		Intern & operator=(Intern const &rhs);
 
-    AForm *makeForm(const std::string &name, const std::string &target);
+		AForm *makeForm(const std::string &name, const std::string &target);
+		typedef AForm *(*funcPtr)(std::string target);
 
 	private:
 

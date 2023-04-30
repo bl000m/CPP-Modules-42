@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:41:15 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/27 13:28:11 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/04/30 16:32:56 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ Bureaucrat::Bureaucrat(){
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade){
 
-		if (this->_grade > 150)
-			throw Bureaucrat::GradeTooHighException();
-		else if (this->_grade < 1)
-			throw Bureaucrat::GradeTooLowException();
-
+	if (this->_grade > 150)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade < 1)
+		throw Bureaucrat::GradeTooLowException();
+	std::cout << "A bureaucrat named " << this->_name << " makes his entrance into the office, proudly displaying grade " << this->_grade << " on his shirt." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src){
@@ -90,7 +90,7 @@ void Bureaucrat::signForm(AForm &form){
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
-	catch (AForm::GradeTooLowException &e){
+	catch (const std::exception &e){
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because: " << e.what() << std::endl;
 	}
 }
@@ -100,7 +100,7 @@ void Bureaucrat::executeForm(AForm const & form) const {
 		form.execute(*this);
 		std::cout << this->getName() << " execute " << form.getName() << std::endl;
 	}
-	catch (AForm::GradeTooLowException &e){
+	catch (const std::exception &e){
 		std::cout << this->getName() << " couldn't execute " << form.getName() << " because: " << e.what() << std::endl;
 	}
 }

@@ -2,6 +2,9 @@
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
   AForm("RobotomyForm", 45, 72), _target(target) {
+    std::cout << "A robotomy form is stacked on the table." << std::endl;
+    std::cout << "As a reminder: it needs grade " << this->getSignGrade() << " to be signed" << std::endl;
+    std::cout << "...and grade " << this->getExecGrade() << " to be excuted" << std::endl;
 }
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &src) :
   AForm(src), _target(src._target){
@@ -13,10 +16,10 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
   static int rand;
 
-  if (this->getSigned() == false)
-        throw AForm::NotSignedException();
-  else if (executor.getGrade() < this->getExecGrade())
+  if (executor.getGrade() > this->getExecGrade())
     throw AForm::GradeTooLowException();
+  else if (!this->getSigned())
+    throw AForm::NotSignedException();
 
   if (rand % 2 == 0){
     std::cout << "trrrrrrrrr trrrrrrrrr trrrrrrrrrrr" << std::endl;

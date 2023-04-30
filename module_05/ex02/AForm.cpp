@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:56:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/30 13:39:34 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 17:33:47 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ const char* AForm::GradeTooLowException::what() const throw(){
 }
 
 const char* AForm::NotSignedException::what() const throw(){
-	return "The file has not been signed yet. So it can't be executed. Sign it first fellow !";
+	return "the file has not been signed yet and it can't be executed !";
 }
 
 /* ------------ operators (=) overload ----------------*/

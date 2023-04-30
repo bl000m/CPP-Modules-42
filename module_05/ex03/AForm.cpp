@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:56:57 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/30 13:00:18 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 17:34:33 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ const char* AForm::GradeTooLowException::what() const throw(){
 }
 
 const char* AForm::NotSignedException::what() const throw(){
-	return "The file has not been signed yet. So it can't be executed. Sign it first fellow !";
+	return "the file has not been signed yet and it can't be executed !";
 }
 
 /* ------------ operators (=) overload ----------------*/
@@ -87,15 +87,12 @@ void	AForm::beSigned(Bureaucrat &bureaucrat){
 /* ------------ Insertion («) operator ----------------*/
 
 std::ostream & operator<<(std::ostream & o, const AForm &rhs){
+  o << "Form '" << rhs.getName() << "' need:" << std::endl;
+  o << "- grade " << rhs.getSignGrade() << " to be signed " << std::endl;
+  o << "- grade " << rhs.getExecGrade() << " to be executed " << std::endl;
 	if (rhs.getSigned() == true)
-	{
-		o << rhs.getName() << " AForm need a " << rhs.getExecGrade() << "grade to be executed"
-		<< "and a " << rhs.getSignGrade() << " grade to be signed. And by the way, it is already signed";
-	}
-	else
-	{
-		o << rhs.getName() << " AForm need a " << rhs.getExecGrade() << "grade to be executed"
-		<< "and a " << rhs.getSignGrade() << " grade to be signed. And by the way, it is still to be signed";
-	}
+    o << "And by the way, it is already signed" << std::endl;
+  else
+    o << "And by the way, it is still to be signed" << std::endl;
 	return o;
 }

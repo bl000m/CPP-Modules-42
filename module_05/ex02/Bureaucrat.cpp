@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:41:15 by mpagani           #+#    #+#             */
-/*   Updated: 2023/04/30 11:49:07 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/04/30 12:45:51 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void Bureaucrat::signForm(AForm &form){
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
-	catch (AForm::GradeTooLowException &e){
+	catch (const std::exception &e){
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because: " << e.what() << std::endl;
 	}
 }
@@ -100,7 +100,7 @@ void Bureaucrat::executeForm(AForm const & form) const {
 		form.execute(*this);
 		std::cout << this->getName() << " execute " << form.getName() << std::endl;
 	}
-	catch (AForm::GradeTooLowException &e){
+	catch (const std::exception &e){
 		std::cout << this->getName() << " couldn't execute " << form.getName() << " because: " << e.what() << std::endl;
 	}
 }
