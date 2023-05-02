@@ -6,30 +6,11 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:23:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/01 17:19:23 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/02 09:59:03 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-ScalarConverter::ScalarConverter(){
-}
-
-
-ScalarConverter::ScalarConverter(ScalarConverter const &src){
-	if (this != &src)
-		*this = src;
-}
-
-ScalarConverter::~ScalarConverter(){
-}
-
-/* ------------ operators (=) overload ----------------*/
-
-ScalarConverter & ScalarConverter::operator=(ScalarConverter const &rhs){
-	(void)rhs;
-	return *this;
-}
 
 /* ------------ convert function ----------------*/
 

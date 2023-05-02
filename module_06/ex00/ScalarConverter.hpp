@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:18:39 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/01 17:27:45 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/02 12:22:02 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@
 class ScalarConverter {
 
 	public:
-		ScalarConverter();
-		ScalarConverter(ScalarConverter const &src);
-		virtual ~ScalarConverter();
-
-		ScalarConverter & operator=(ScalarConverter const &rhs);
 		static void convert(const std::string &literal);
 
+	private:
 		static bool checkInt(const std::string &literal);
 		static bool checkFloat(const std::string &literal);
 		static bool checkDouble(const std::string &literal);
@@ -36,8 +32,7 @@ class ScalarConverter {
 		static void displayInt(const std::string &literal);
 		static void displayFloat(const std::string &literal);
 		static void displayDouble(const std::string &literal);
-
-	private:
+		ScalarConverter();
 
 };
 
