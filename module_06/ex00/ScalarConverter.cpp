@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:23:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/02 09:59:03 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/02 11:37:39 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ bool ScalarConverter::checkInt(const std::string &literal){
 }
 
 bool ScalarConverter::checkFloat(const std::string &literal){
-	if (literal.find('.') != std::string::npos){
-		float convertedFloat = atof(literal.c_str());
-		return convertedFloat == floorf(convertedFloat);
-	}
+	float	check;
+	std::stringstream stream(literal);
+	stream >> check;
+	if (!check.fail && literal.eof)
+		return true;
 	return false;
 }
 
