@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:23:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/02 15:53:51 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/02 15:55:05 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ void ScalarConverter::displayInt(const std::string &literal){
 }
 
 void ScalarConverter::displayFloat(const std::string &literal){
-	// float convertedFloat = atof(literal.c_str());
 	float	convertedFloat;
 	std::stringstream stream(literal);
 	stream >> convertedFloat;
@@ -117,7 +116,6 @@ void ScalarConverter::displayFloat(const std::string &literal){
 }
 
 void ScalarConverter::displayDouble(const std::string &literal){
-	// double convertedDouble = atof(literal.c_str());
 	double	convertedDouble;
 	std::stringstream stream(literal);
 	stream >> convertedDouble;
