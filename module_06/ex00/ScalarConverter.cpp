@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:23:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/02 17:31:50 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/02 17:51:02 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void ScalarConverter::convert(const std::string &literal){
 		displayDouble(literal);
 	else if (std::isprint(literal[0]) && literal.length() == 1)
 		displayChar(literal);
+	else
+		std::cout << "Token not recognized" << std::endl;
+
 }
 
 /* ------------ checking ----------------*/
@@ -53,7 +56,7 @@ bool ScalarConverter::checkFloat(const std::string &literal){
 	float	check;
 	std::stringstream stream(literal);
 	stream >> check;
-	if (!stream.fail() && !stream.eof()){
+	if (!stream.fail() && literal.at(literal.length() - 1) == 'f'){
 		return true;
 	}
 	return false;
@@ -63,7 +66,7 @@ bool ScalarConverter::checkDouble(const std::string &literal){
 	double	check;
 	std::stringstream stream(literal);
 	stream >> check;
-	if (!stream.fail() && stream.eof()){
+	if (!stream.fail() && !stream.eof() && literal.at(literal.length() - 1) <= 57 && literal.at(literal.length() - 1) >= 48){
 		return true;
 	}
 	return false;
