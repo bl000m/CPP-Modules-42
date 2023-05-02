@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:23:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/02 11:37:39 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:53:51 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,17 @@ bool ScalarConverter::checkFloat(const std::string &literal){
 	float	check;
 	std::stringstream stream(literal);
 	stream >> check;
-	if (!check.fail && literal.eof)
+	if (!stream.fail() && stream.eof())
 		return true;
 	return false;
 }
 
 bool ScalarConverter::checkDouble(const std::string &literal){
-	if (literal.find('.') != std::string::npos){
-		double convertedDouble = atof(literal.c_str());
-		return convertedDouble == floor(convertedDouble);
-	}
-	return false;
+	double	check;
+	std::stringstream stream(literal);
+	stream >> check;
+	if (!stream.fail() && stream.eof())
+		return true;
 	return false;
 }
 
@@ -101,7 +101,10 @@ void ScalarConverter::displayInt(const std::string &literal){
 }
 
 void ScalarConverter::displayFloat(const std::string &literal){
-	float convertedFloat = atof(literal.c_str());
+	// float convertedFloat = atof(literal.c_str());
+	float	convertedFloat;
+	std::stringstream stream(literal);
+	stream >> convertedFloat;
 
 	char x = static_cast<char>(convertedFloat);
 	isprint(x) ? std::cout << "char: " << x << std::endl : std::cout << "char: Non displayable" << x << std::endl;
@@ -114,7 +117,10 @@ void ScalarConverter::displayFloat(const std::string &literal){
 }
 
 void ScalarConverter::displayDouble(const std::string &literal){
-	double convertedDouble = atof(literal.c_str());
+	// double convertedDouble = atof(literal.c_str());
+	double	convertedDouble;
+	std::stringstream stream(literal);
+	stream >> convertedDouble;
 
 	char x = static_cast<char>(convertedDouble);
 	isprint(x) ? std::cout << "char: " << x << std::endl : std::cout << "char: Non displayable" << x << std::endl;
