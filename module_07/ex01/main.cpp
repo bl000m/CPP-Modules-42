@@ -6,19 +6,23 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:17:20 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/03 15:30:28 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/03 15:33:35 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <iostream>
 
-void printOut(const std::string &str){
-	std::cout << str << std::endl;
+template <typename T>
+void printOut(const T &arrayItem){
+	std::cout << arrayItem << std::endl;
 }
 
 int main(){
 	printOut("------- creating a string array ------");
 	std::string strArray[3] = {"first", "second", "third"};
-	iter(strArray, strArray.length(), printOut());
+	iter(strArray, 3, printOut);
+	printOut("------- creating an int array ------");
+	int intArray[3] = {1, 2, 3};
+	iter(intArray, 3, printOut);
 }
