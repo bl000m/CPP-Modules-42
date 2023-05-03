@@ -5,26 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 12:47:59 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/03 15:06:51 by mpagani          ###   ########.fr       */
+/*   Created: 2023/05/03 15:17:20 by mpagani           #+#    #+#             */
+/*   Updated: 2023/05/03 15:30:28 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "iter.hpp"
 #include <iostream>
 
-int main( void ) {
-int a = 2;
-int b = 3;
-::swap( a, b );
-std::cout << "a = " << a << ", b = " << b << std::endl;
-std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-std::string c = "chaine1";
-std::string d = "chaine2";
-::swap(c, d);
-std::cout << "c = " << c << ", d = " << d << std::endl;
-std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-return 0;
+void printOut(const std::string &str){
+	std::cout << str << std::endl;
+}
+
+int main(){
+	printOut("------- creating a string array ------");
+	std::string strArray[3] = {"first", "second", "third"};
+	iter(strArray, strArray.length(), printOut());
 }
