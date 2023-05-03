@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:23:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/03 11:53:27 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/03 12:02:08 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,11 +125,11 @@ void ScalarConverter::displayFloat(const std::string &literal){
 		std::cout << "float: " << static_cast<float>(convertedFloat) << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(convertedFloat) << std::endl;
 	}
-	else if (literal[literal.find('.') + 1] == '0' && (literal.find('.') + 4) == literal.length()){
-		std::cout << "float: " << static_cast<float>(convertedFloat) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(convertedFloat) << std::endl;
+	else if (literal[literal.find('.') + 1] == '0' && (literal.find('.') + 3) == literal.length()){
+		std::cout << "float: " << static_cast<float>(convertedFloat) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedFloat) << ".0" << std::endl;
 	}
-	else if (literal[literal.find('.') + 1] == '0' && literal[(literal.find('.') + 2)] != 0){
+	else if (literal[literal.find('.') + 1] == '0' && literal[(literal.find('.') + 2)] != '0'){
 		std::cout << "float: " << static_cast<float>(convertedFloat) << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(convertedFloat) << std::endl;
 	}
@@ -154,9 +154,9 @@ void ScalarConverter::displayDouble(const std::string &literal){
 		std::cout << "float: " << static_cast<float>(convertedDouble) << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(convertedDouble) << std::endl;
 	}
-	else if (literal[literal.find('.') + 1] == '0' && (literal.find('.') + 4) == literal.length()){
-		std::cout << "float: " << static_cast<float>(convertedDouble) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(convertedDouble) << std::endl;
+	else if (literal[literal.find('.') + 1] == '0' && (literal.find('.') + 2) == literal.length()){
+		std::cout << "float: " << static_cast<float>(convertedDouble) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedDouble) << ".0" << std::endl;
 	}
 	else if (literal[literal.find('.') + 1] == '0' && literal[(literal.find('.') + 2)] != '0'){
 		std::cout << "float: " << static_cast<float>(convertedDouble) << "f" << std::endl;
