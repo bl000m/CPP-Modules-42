@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:23:14 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/02 17:51:02 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/03 11:53:27 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void ScalarConverter::convert(const std::string &literal){
 	else if (checkInt(literal))
 		displayInt(literal);
 	else if (checkFloat(literal))
-		displayDouble(literal);
+		displayFloat(literal);
 	else if (checkDouble(literal))
 		displayDouble(literal);
-	else if (std::isprint(literal[0]) && literal.length() == 1)
+	else if (std::isprint(literal[0]) && !std::isdigit(literal[0]) && literal.length() == 1)
 		displayChar(literal);
 	else
-		std::cout << "Token not recognized" << std::endl;
+		std::cout << "Literal not recognized. Check it please." << std::endl;
 
 }
 
@@ -56,7 +56,12 @@ bool ScalarConverter::checkFloat(const std::string &literal){
 	float	check;
 	std::stringstream stream(literal);
 	stream >> check;
-	if (!stream.fail() && literal.at(literal.length() - 1) == 'f'){
+	for (int i = literal.find('.') + 1; i < static_cast<int>(literal.length() - 1); i++){
+		if (literal[i] < 48 || literal[i] > 57){
+			return false;
+		}
+	}
+	if (!stream.fail() && literal[literal.length() - 1] == 'f'){
 		return true;
 	}
 	return false;
@@ -66,7 +71,7 @@ bool ScalarConverter::checkDouble(const std::string &literal){
 	double	check;
 	std::stringstream stream(literal);
 	stream >> check;
-	if (!stream.fail() && !stream.eof() && literal.at(literal.length() - 1) <= 57 && literal.at(literal.length() - 1) >= 48){
+	if (!stream.fail() && stream.eof() && literal.at(literal.length() - 1) <= 57 && literal.at(literal.length() - 1) >= 48){
 		return true;
 	}
 	return false;
@@ -96,7 +101,7 @@ void ScalarConverter::displayInt(const std::string &literal){
 	check >> convertedInt;
 
 	char x = static_cast<char>(convertedInt);
-	isprint(x) ? std::cout << "char: '" << x << "'" << std::endl : std::cout << "char: Non displayable" << x << std::endl;
+	isprint(x) ? std::cout << "char: '" << x << "'" << std::endl : std::cout << "char: Non displayable" << std::endl;
 	if (convertedInt > INT_MIN && convertedInt < INT_MAX)
 		std::cout << "int: " << convertedInt << std::endl;
 	else
@@ -111,13 +116,27 @@ void ScalarConverter::displayFloat(const std::string &literal){
 	stream >> convertedFloat;
 
 	char x = static_cast<char>(convertedFloat);
-	isprint(x) ? std::cout << "char: '" << x << "'" << std::endl : std::cout << "char: Non displayable" << x << std::endl;
+	isprint(x) ? std::cout << "char: '" << x << "'" << std::endl : std::cout << "char: Non displayable" << std::endl;
 	if (convertedFloat > static_cast<float>(INT_MIN) && convertedFloat < static_cast<float>(INT_MAX))
 		std::cout << "int: " << static_cast<int>(convertedFloat) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << static_cast<float>(convertedFloat) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(convertedFloat) << ".0" << std::endl;
+	if (literal[literal.find('.') + 1] != '0'){
+		std::cout << "float: " << static_cast<float>(convertedFloat) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedFloat) << std::endl;
+	}
+	else if (literal[literal.find('.') + 1] == '0' && (literal.find('.') + 4) == literal.length()){
+		std::cout << "float: " << static_cast<float>(convertedFloat) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedFloat) << std::endl;
+	}
+	else if (literal[literal.find('.') + 1] == '0' && literal[(literal.find('.') + 2)] != 0){
+		std::cout << "float: " << static_cast<float>(convertedFloat) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedFloat) << std::endl;
+	}
+	else {
+		std::cout << "float: " << static_cast<float>(convertedFloat) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedFloat) << ".0" << std::endl;
+	}
 }
 
 void ScalarConverter::displayDouble(const std::string &literal){
@@ -126,12 +145,25 @@ void ScalarConverter::displayDouble(const std::string &literal){
 	stream >> convertedDouble;
 
 	char x = static_cast<char>(convertedDouble);
-	isprint(x) ? std::cout << "char: '" << x << "'" << std::endl : std::cout << "char: Non displayable" << x << std::endl;
+	isprint(x) ? std::cout << "char: '" << x << "'" << std::endl : std::cout << "char: Non displayable" << std::endl;
 	if (convertedDouble > static_cast<double>(INT_MIN) && convertedDouble < static_cast<double>(INT_MAX))
 		std::cout << "int: " << static_cast<int>(convertedDouble) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << static_cast<float>(convertedDouble) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(convertedDouble) << ".0" << std::endl;
-
+	if (literal[literal.find('.') + 1] != '0'){
+		std::cout << "float: " << static_cast<float>(convertedDouble) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedDouble) << std::endl;
+	}
+	else if (literal[literal.find('.') + 1] == '0' && (literal.find('.') + 4) == literal.length()){
+		std::cout << "float: " << static_cast<float>(convertedDouble) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedDouble) << std::endl;
+	}
+	else if (literal[literal.find('.') + 1] == '0' && literal[(literal.find('.') + 2)] != '0'){
+		std::cout << "float: " << static_cast<float>(convertedDouble) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedDouble) << std::endl;
+	}
+	else {
+		std::cout << "float: " << static_cast<float>(convertedDouble) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(convertedDouble) << ".0" << std::endl;
+	}
 }
