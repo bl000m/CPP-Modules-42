@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:10:42 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/04 18:03:06 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/05 12:52:22 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Span {
 		Span(unsigned int N);
 		virtual ~Span();
 		void addNumber(unsigned int num);
-		unsigned int shortestSpan();
-		unsigned int longestSpan();
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
 		void addOneShot(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
 	private:
@@ -35,6 +35,6 @@ class Span {
 
 };
 
-std::ostream&	operator<<(std::ostream& o, Span& i);
+std::ostream&	operator<<(std::ostream& o, const Span& i);
 
 #endif
