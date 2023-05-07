@@ -6,7 +6,7 @@
 /*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:59:06 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/07 09:13:42 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/07 17:18:51 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,50 @@ int checkError(int numArgs){
 	return 0;
 }
 
-void parse(std::map<std::string, int> recordToCheck, std::istream &file, std::string &line){
+float convertDependingOnDate(std::string date, float bitcoinQty, std::map<std::string, float> &recordToCheck){
+	std::ifstream file("data.csv");
+	if (!file.is_open()){
+		std::perror("data.csv");
+		return 1;
+	}
+	std::string record;
+	std::stringstream line;
+	std::string dateToSearch;
+	float exchangeRate;
+	float dollars;
+	std::cout << date << std::endl;
+	while(std::getline(file, record)){
+		line.clear();
+		line.str(record);
+		if (std::getline(line, dateToSearch, ',') && line >> exchangeRate){
+			if (dateToSearch >= date){
+				recordToCheck.insert(std::make_pair(dateToSearch, exchangeRate));
+				break ;
+			}
+		}
+	}
+	dollars = bitcoinQty * recordToCheck[dateToSearch];
+	return dollars;
+}
+
+void parse(std::map<std::string, float> &recordToCheck, std::istream &file, std::string &line){
 	while (std::getline(file, line)){
 		std::stringstream content(line);
 		std::string date;
 		float bitcoinQty;
 		if (std::getline(content, date, '|') && content >> bitcoinQty)
 		{
-			std::cout << "date:" << date << std::endl;
-			std::cout << "bitcoinQty:" << bitcoinQty << std::endl;
-			recordToCheck.insert(std::make_pair(date, bitcoinQty));
+			try{
+				float dollars = convertDependingOnDate(date, bitcoinQty, recordToCheck);
+				// if (!checkDate(date) && !checkBitcoinQty(bitcoinQty))
+					std::cout << date << " => " << bitcoinQty << " = " << dollars << std::endl;
+			}
+			catch (const std::exception & e) {
+				std::cerr << e.what() << std::endl;
+			}
+			// std::cout << "date:" << date << std::endl;
+			// std::cout << "bitcoinQty:" << bitcoinQty << std::endl;
+			// recordToCheck.insert(std::make_pair(date, bitcoinQty));
 		}
 	}
 }
@@ -42,7 +76,7 @@ void parse(std::map<std::string, int> recordToCheck, std::istream &file, std::st
 int main(int argc, char **argv){
 	if (checkError(argc))
 		return 1;
-	std::map<std::string, int> recordToCheck;
+	std::map<std::string, float> recordToCheck;
 	std::ifstream file(argv[1]);
 	if (!file.is_open()){
 		std::perror(argv[1]);
