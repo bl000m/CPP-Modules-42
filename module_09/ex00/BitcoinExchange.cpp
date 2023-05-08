@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:58:44 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/08 13:59:33 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/08 14:32:33 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,11 @@ int	BitcoinExchange::checkDate(std::string date){
 			throw SomethingWrong("Error: day can't be < 1");
 			return false;
 		}
-		if (month > 12
-			|| ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31)
+		if (month > 12){
+			throw SomethingWrong("Error: month can be > 12");
+			return false;
+			}
+		if (((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31)
 			|| ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)){
 			throw SomethingWrong("Error: day is too higher for the specified month dude");
 			return false;

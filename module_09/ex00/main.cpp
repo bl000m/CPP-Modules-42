@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:59:06 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/08 13:59:06 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/08 14:26:11 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ void parse(std::map<std::string, float> &recordToCheck, std::istream &file, std:
 			catch (const std::exception & e) {
 				std::cerr << e.what() << std::endl;
 			}
-			// std::cout << "date:" << date << std::endl;
-			// std::cout << "bitcoinQty:" << bitcoinQty << std::endl;
-			// recordToCheck.insert(std::make_pair(date, bitcoinQty));
 		}
 		else
 			std::cerr << "Error: bad input => " << line << std::endl;
