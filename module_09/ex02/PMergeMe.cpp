@@ -6,7 +6,7 @@
 /*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:45 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/09 22:28:35 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/05/09 22:51:13 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,45 +53,6 @@ double PMergeMe::timePassed(std::time_t startTime){
 	elapsedTime = difftime(endTime, startTime);
 	return elapsedTime;
 }
-
-//merge sort
-
-// void PMergeMe::mergeSortVector(std::vector<std::vector<int> > &container, int left, int right){
-// 	if (left >= right)
-// 		return;
-// 	int middle = ((left + right) / 2);
-
-// 	mergeSortVector(container, left, middle);
-// 	mergeSortVector(container, middle + 1, right);
-// 	std::vector<std::vector<int> > result;
-// 	int i = left;
-// 	int j = middle + 1;
-// 	while (i <= middle && j <= right){
-// 		if (container[i][0] < container[j][0]){
-// 			result.push_back(container[i]);
-// 			i++;
-// 		}
-// 		else if (container[i][0] == container[j][0] && container[i][1] < container[j][1]){
-// 			result.push_back(container[i]);
-// 			i++;
-// 		}
-// 		else{
-// 			result.push_back(container[j]);
-// 			j++;
-// 		}
-// 	}
-// 	while (i <= middle){
-// 		result.push_back(container[i]);
-// 		i++;
-// 	}
-// 	while (j <= right){
-// 		result.push_back(container[j]);
-// 		j++;
-// 	}
-// 	for (int k = left; k <= right; k++){
-// 		container[k] = result[k - left];
-// 	}
-// }
 
 // merge insert sort
 
