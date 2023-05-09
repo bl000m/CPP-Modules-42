@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:41 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/08 16:58:55 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/09 11:05:40 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <map>
-#include <stack>
-#include <iostream>
+#include <deque>
+#include <vector>
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -26,14 +25,17 @@
 class PMergeMe {
 
 	public:
-		PMergeMe();
+		PMergeMe(char **values, int numValues);
 		PMergeMe(const PMergeMe &src);
 		virtual ~PMergeMe();
 
 		PMergeMe & operator=(const PMergeMe &rhs);
-		void making(std::string **argv);
 
 	private:
+		PMergeMe(std::string);
+		std::vector<int> _vectorCont;
+		std::deque<int> _dequeCont;
+		bool	_sorted;
 
 	protected:
 		class SomethingWrong : public std::exception {
@@ -47,5 +49,7 @@ class PMergeMe {
 				std::string message;
 		};
 };
+
+std::ostream&	operator<<(std::ostream& o, const PMergeMe& i);
 
 #endif
