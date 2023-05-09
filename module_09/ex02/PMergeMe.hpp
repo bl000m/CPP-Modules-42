@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PMergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:41 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/09 17:51:53 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/09 22:23:50 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class PMergeMe {
 		void sort();
 		void mergeInsertSortVector(std::vector<int> &container);
 		void mergeSortVector(std::vector<std::vector<int> > &container, int left, int right);
+    void insertionSort(std::vector<int>& arr);
+    void merge(std::vector<int>& arr, std::vector<int>& left, std::vector<int>& right);
 
 		//time management
 		std::time_t trackTime();

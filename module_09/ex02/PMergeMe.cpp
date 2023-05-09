@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PMergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:45 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/09 18:08:54 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/09 22:28:35 by mathiapagan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,79 +56,93 @@ double PMergeMe::timePassed(std::time_t startTime){
 
 //merge sort
 
-void PMergeMe::mergeSortVector(std::vector<std::vector<int> > &container, int left, int right){
-	if (left >= right)
-		return;
-	int middle = ((left + right) / 2);
-	
-	mergeSortVector(container, left, middle);
-	mergeSortVector(container, middle + 1, right);
-	std::vector<std::vector<int> > result;
-	int i = left;
-	int j = middle + 1;
-	while (i <= middle && j <= right){
-		if (container[i][0] < container[j][0]){
-			result.push_back(container[i]);
-			i++;
-		}
-		else if (container[i][0] == container[j][0] && container[i][1] < container[j][1]){
-			result.push_back(container[i]);
-			i++;
-		}
-		else{
-			result.push_back(container[j]);
-			j++;
-		}
-	}
-	while (i <= middle){
-		result.push_back(container[i]);
-		i++;
-	}
-	while (j <= right){
-		result.push_back(container[j]);
-		j++;
-	}
-	for (int k = left; k <= right; k++){
-		container[k] = result[k - left];
-	}
-}
+// void PMergeMe::mergeSortVector(std::vector<std::vector<int> > &container, int left, int right){
+// 	if (left >= right)
+// 		return;
+// 	int middle = ((left + right) / 2);
+
+// 	mergeSortVector(container, left, middle);
+// 	mergeSortVector(container, middle + 1, right);
+// 	std::vector<std::vector<int> > result;
+// 	int i = left;
+// 	int j = middle + 1;
+// 	while (i <= middle && j <= right){
+// 		if (container[i][0] < container[j][0]){
+// 			result.push_back(container[i]);
+// 			i++;
+// 		}
+// 		else if (container[i][0] == container[j][0] && container[i][1] < container[j][1]){
+// 			result.push_back(container[i]);
+// 			i++;
+// 		}
+// 		else{
+// 			result.push_back(container[j]);
+// 			j++;
+// 		}
+// 	}
+// 	while (i <= middle){
+// 		result.push_back(container[i]);
+// 		i++;
+// 	}
+// 	while (j <= right){
+// 		result.push_back(container[j]);
+// 		j++;
+// 	}
+// 	for (int k = left; k <= right; k++){
+// 		container[k] = result[k - left];
+// 	}
+// }
 
 // merge insert sort
 
+void PMergeMe::insertionSort(std::vector<int>& container)
+{
+    for (std::vector<int>::iterator i = container.begin(); i != container.end(); ++i)
+    {
+        std::vector<int>::iterator j = i;
+        while (j != container.begin() && *(j - 1) > *j)
+        {
+            std::swap(*j, *(j - 1));
+            --j;
+        }
+    }
+}
+
+void PMergeMe::merge(std::vector<int>& container, std::vector<int>& left, std::vector<int>& right)
+{
+    std::vector<int>::iterator i = left.begin();
+    std::vector<int>::iterator j = right.begin();
+    std::vector<int>::iterator k = container.begin();
+    while (i != left.end() || j != right.end())
+    {
+        if (i == left.end())
+            *k++ = *j++;
+        else if (j == right.end())
+            *k++ = *i++;
+        else if (*i < *j)
+            *k++ = *i++;
+        else
+            *k++ = *j++;
+    }
+}
+
 void PMergeMe::mergeInsertSortVector(std::vector<int> &container){
-	//devide vector container into subcontainer of length k
-	int	minValue = 2; // test with other value
-	if ((int)container.size() < minValue)
-		return ;
-	int j = 0;
-	std::vector<std::vector<int> > subContainers(container.size() / minValue + 1); // need to check if result is an int or float
-	std::vector<int>::iterator it;
-	for (it = container.begin(); it < container.end(); it += minValue){
-		for (int i = 0; i < minValue && it + 1 != container.end(); i++){
-			// std::cout << "j = " << j << std::endl;
-			std::cout << "i = " << i << std::endl;
-			subContainers[j].push_back(*(it + i));
-			std::cout << "added to subcontainer: " << subContainers[j].back() << std::endl;
-		}
-		j++;
-	}
-	//sort each subcontainer using insertion sort
-	for (int i = 0; i < (int)subContainers.size(); i++){
-		std::vector<int>::iterator subIt;
-		for (subIt = subContainers[i].begin(); subIt < subContainers[i].end(); subIt++){
-			if (*(subIt + 1) < *subIt){
-				int temp = *subIt;
-				*subIt = *(subIt + 1);
-				*(subIt + 1) = temp;
-			}
-		}
-	}
-
-	//merge the sorted subcontainer using merge sort
-	mergeSortVector(subContainers, 0, subContainers.size() - 1);
-
-	//_sorted become true
-	_sorted = 1;
+    const int threshold = 16;
+    const int size = container.size();
+    if (size < 2)
+        return ;
+    if (size < threshold)
+    {
+        insertionSort(container);
+        return ;
+    }
+    std::vector<int>::iterator middle = container.begin() + size / 2;
+    std::vector<int> left(container.begin(), middle);
+    std::vector<int> right(middle, container.end());
+    mergeInsertSortVector(left);
+    mergeInsertSortVector(right);
+    merge(container, left, right);
+    _sorted = true;
 }
 
 //sort algo routing
