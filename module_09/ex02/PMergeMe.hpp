@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:41 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 12:38:58 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 13:36:06 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ class PMergeMe {
 		//getters
 		bool getSortedInfo();
 		std::vector<int>& getVectorCont();
-		std::deque<int>& getDequeCont();
 
 		//<< overload
 		PMergeMe & operator=(const PMergeMe &rhs);
