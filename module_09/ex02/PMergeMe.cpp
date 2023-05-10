@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:45 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 11:22:19 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 11:55:25 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ PMergeMe & PMergeMe::operator=(const PMergeMe &rhs){
 
 //time management
 double PMergeMe::trackTime(){
-	// std::time_t startTime = std::time(0);
-	// return startTime;
 	struct timeval currentTime;
 	gettimeofday(&currentTime, NULL);
 	return (currentTime.tv_sec * 1000 + currentTime.tv_usec * 0.001);
@@ -130,31 +128,35 @@ std::vector<int>& PMergeMe::getVectorCont(){
 }
 
 void PMergeMe::printTimeElapsed(){
-	std::cout << "Time to process a range of " << _vectorCont.size() << " elements with std::vector : " << _timePassedVector <<  " us" << std::endl;
+	std::cout << "\e[0;33m" << "Time to process a range of " << _vectorCont.size() << " elements with std::vector : " << _timePassedVector <<  " us" << "\e[0m" << std::endl;
+	std::cout << std::endl;
+	std::cout << "\e[0;32m" << "Time to process a range of " << _vectorCont.size() << " elements with std::vector : " << _timePassedVector <<  " us" << "\e[0m" << std::endl;
+	std::cout << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& o, PMergeMe & i)
 {
 	std::vector<int> vectorCont = i.getVectorCont();
+
     try
     {
 		if (i.getSortedInfo() == false){
-			o << "Before: ";
+			o << std::endl;
+			o << "\e[1;37m" << "Before: " << "\e[0m" << std::endl;
 			for (size_t count = 0; count < vectorCont.size(); count++){
-				o << vectorCont[count] << " ";
-				// if (vectorCont[count] != vectorCont.back())
-				// 	o << " ";
+				o << "\e[0;31m" << vectorCont[count] << " " << "\e[0m";
 			}
-			// o << std::endl;
+			o << std::endl;
 		}
 		else{
-            o << "After: ";
+			o << std::endl;
+            o << "\e[1;37m" << "After: " << "\e[0m" << std::endl;
 			for (size_t count = 0; count < vectorCont.size(); count++){
-				o << vectorCont[count] << " ";
+				o << "\e[0;36m" << vectorCont[count] << " " << "\e[0m";
 				// if (vectorCont[count] != vectorCont.back())
 				// 	o << " ";
 			}
-			// o << std::endl;
+			o << std::endl;
 		}
 
     }
