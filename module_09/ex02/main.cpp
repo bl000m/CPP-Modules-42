@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:16:12 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 10:52:10 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 13:40:46 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 #include <cstdlib>
 #include <algorithm>
 
-
+// still to check if args are valid positive int (and not char for example)
+// and protect better the conversion in the constructor: atoi is not enough in case of not valid token
 int main(int argc, char **argv){
 	PMergeMe order(argv, argc);
 

@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:45 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 13:22:04 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 13:35:55 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,10 +187,6 @@ bool PMergeMe::getSortedInfo(){
 
 std::vector<int>& PMergeMe::getVectorCont(){
 	return _vectorCont;
-}
-
-std::deque<int>& PMergeMe::getDequeCont(){
-	return _dequeCont;
 }
 
 /* --------------------- printing ------------------------*/
