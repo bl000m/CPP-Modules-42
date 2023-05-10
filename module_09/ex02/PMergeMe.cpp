@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PMergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathiapagani <mathiapagani@student.42.f    +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:45 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/09 22:51:13 by mathiapagan      ###   ########.fr       */
+/*   Updated: 2023/05/10 11:22:19 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PMergeMe.hpp"
 
 PMergeMe::PMergeMe(char **values, int numValues) : _sorted(false){
-	//verify duplicates
 	for (int i = 1; i < numValues; i++){
 		_vectorCont.push_back(atoi(values[i]));
 	}
@@ -42,16 +41,20 @@ PMergeMe & PMergeMe::operator=(const PMergeMe &rhs){
 }
 
 //time management
-std::time_t PMergeMe::trackTime(){
-	std::time_t startTime = std::time(0);
-	return startTime;
+double PMergeMe::trackTime(){
+	// std::time_t startTime = std::time(0);
+	// return startTime;
+	struct timeval currentTime;
+	gettimeofday(&currentTime, NULL);
+	return (currentTime.tv_sec * 1000 + currentTime.tv_usec * 0.001);
+
 }
 
-double PMergeMe::timePassed(std::time_t startTime){
-	double elapsedTime;
-	std::time_t endTime = time(0);
-	elapsedTime = difftime(endTime, startTime);
-	return elapsedTime;
+double PMergeMe::timePassed(double startTime){
+	double endTime = trackTime();
+	if (startTime > 0)
+		return endTime - startTime;
+	return 0;
 }
 
 // merge insert sort
@@ -88,7 +91,7 @@ void PMergeMe::merge(std::vector<int>& container, std::vector<int>& left, std::v
 }
 
 void PMergeMe::mergeInsertSortVector(std::vector<int> &container){
-    const int threshold = 16;
+    const int threshold = 13;
     const int size = container.size();
     if (size < 2)
         return ;
@@ -103,19 +106,19 @@ void PMergeMe::mergeInsertSortVector(std::vector<int> &container){
     mergeInsertSortVector(left);
     mergeInsertSortVector(right);
     merge(container, left, right);
-    _sorted = true;
 }
 
 //sort algo routing
 void PMergeMe::sort(){
-	std::time_t startTime = trackTime();
-	// std::cout << "Vector container size: " << _vectorCont.size() << std::endl;
+	double startTime = trackTime();
 	mergeInsertSortVector(_vectorCont);
 	_timePassedVector = timePassed(startTime);
+
 
 	startTime = trackTime();
 	// mergeInsertSortDeque(_dequeCont);
 	_timePassedDeque = timePassed(startTime);
+    _sorted = true;
 }
 
 bool PMergeMe::getSortedInfo(){
@@ -124,6 +127,10 @@ bool PMergeMe::getSortedInfo(){
 
 std::vector<int>& PMergeMe::getVectorCont(){
 	return _vectorCont;
+}
+
+void PMergeMe::printTimeElapsed(){
+	std::cout << "Time to process a range of " << _vectorCont.size() << " elements with std::vector : " << _timePassedVector <<  " us" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& o, PMergeMe & i)
