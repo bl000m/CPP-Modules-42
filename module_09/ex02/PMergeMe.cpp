@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:45 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 11:22:19 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 13:22:04 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ PMergeMe::PMergeMe(char **values, int numValues) : _sorted(false){
 	for (int i = 1; i < numValues; i++){
 		_vectorCont.push_back(atoi(values[i]));
 	}
-	for (int i = 1; i < numValues - 1; i++){
+	for (int i = 1; i < numValues; i++){
 		_dequeCont.push_back(atoi(values[i]));
 	}
 }
@@ -40,26 +40,42 @@ PMergeMe & PMergeMe::operator=(const PMergeMe &rhs){
 	return *this;
 }
 
-//time management
-double PMergeMe::trackTime(){
-	// std::time_t startTime = std::time(0);
-	// return startTime;
-	struct timeval currentTime;
-	gettimeofday(&currentTime, NULL);
-	return (currentTime.tv_sec * 1000 + currentTime.tv_usec * 0.001);
 
+
+/* --------------------- ROUTING SORT ------------------------*/
+
+void PMergeMe::sort(){
+	double startTime = trackTime();
+	mergeInsertSortVector(_vectorCont);
+	_timePassedVector = timePassed(startTime);
+
+	startTime = trackTime();
+	mergeInsertSortDeque(_dequeCont);
+	_timePassedDeque = timePassed(startTime);
+    _sorted = true;
+}
+/* --------------------- VECTOR CHOICE ------------------------*/
+
+
+void PMergeMe::mergeInsertSortVector(std::vector<int> &container){
+    const int threshold = 13;
+    const int size = container.size();
+    if (size < 2)
+        return ;
+    if (size < threshold)
+    {
+        insertionSortVector(container);
+        return ;
+    }
+    std::vector<int>::iterator middle = container.begin() + size / 2;
+    std::vector<int> left(container.begin(), middle);
+    std::vector<int> right(middle, container.end());
+    mergeInsertSortVector(left);
+    mergeInsertSortVector(right);
+    mergeVector(container, left, right);
 }
 
-double PMergeMe::timePassed(double startTime){
-	double endTime = trackTime();
-	if (startTime > 0)
-		return endTime - startTime;
-	return 0;
-}
-
-// merge insert sort
-
-void PMergeMe::insertionSort(std::vector<int>& container)
+void PMergeMe::insertionSortVector(std::vector<int>& container)
 {
     for (std::vector<int>::iterator i = container.begin(); i != container.end(); ++i)
     {
@@ -72,7 +88,7 @@ void PMergeMe::insertionSort(std::vector<int>& container)
     }
 }
 
-void PMergeMe::merge(std::vector<int>& container, std::vector<int>& left, std::vector<int>& right)
+void PMergeMe::mergeVector(std::vector<int>& container, std::vector<int>& left, std::vector<int>& right)
 {
     std::vector<int>::iterator i = left.begin();
     std::vector<int>::iterator j = right.begin();
@@ -90,36 +106,80 @@ void PMergeMe::merge(std::vector<int>& container, std::vector<int>& left, std::v
     }
 }
 
-void PMergeMe::mergeInsertSortVector(std::vector<int> &container){
+
+/* <<<<<<<<<<<<<<<<<<<<< DEQUE CHOICE ->>>>>>>>>>>>>>>>>>>>>>>> */
+
+void PMergeMe::mergeInsertSortDeque(std::deque<int> &container){
     const int threshold = 13;
     const int size = container.size();
     if (size < 2)
         return ;
     if (size < threshold)
     {
-        insertionSort(container);
+        insertionSortDeque(container);
         return ;
     }
-    std::vector<int>::iterator middle = container.begin() + size / 2;
-    std::vector<int> left(container.begin(), middle);
-    std::vector<int> right(middle, container.end());
-    mergeInsertSortVector(left);
-    mergeInsertSortVector(right);
-    merge(container, left, right);
+    std::deque<int>::iterator middle = container.begin() + size / 2;
+    std::deque<int> left(container.begin(), middle);
+    std::deque<int> right(middle, container.end());
+    mergeInsertSortDeque(left);
+    mergeInsertSortDeque(right);
+    mergeDeque(container, left, right);
 }
 
-//sort algo routing
-void PMergeMe::sort(){
-	double startTime = trackTime();
-	mergeInsertSortVector(_vectorCont);
-	_timePassedVector = timePassed(startTime);
-
-
-	startTime = trackTime();
-	// mergeInsertSortDeque(_dequeCont);
-	_timePassedDeque = timePassed(startTime);
-    _sorted = true;
+void PMergeMe::insertionSortDeque(std::deque<int>& container)
+{
+    for (std::deque<int>::iterator i = container.begin(); i != container.end(); ++i)
+    {
+        std::deque<int>::iterator j = i;
+        while (j != container.begin() && *(j - 1) > *j)
+        {
+            std::swap(*j, *(j - 1));
+            --j;
+        }
+    }
 }
+
+void PMergeMe::mergeDeque(std::deque<int>& container, std::deque<int>& left, std::deque<int>& right)
+{
+    std::deque<int>::iterator i = left.begin();
+    std::deque<int>::iterator j = right.begin();
+    std::deque<int>::iterator k = container.begin();
+    while (i != left.end() || j != right.end())
+    {
+        if (i == left.end())
+            *k++ = *j++;
+        else if (j == right.end())
+            *k++ = *i++;
+        else if (*i < *j)
+            *k++ = *i++;
+        else
+            *k++ = *j++;
+    }
+}
+
+
+
+
+/* <<<<<<<<<<<<<<<<<<<<< TRASVERSAL TOOLS ->>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* --------------------- time management ------------------------*/
+
+double PMergeMe::trackTime(){
+	struct timeval currentTime;
+	gettimeofday(&currentTime, NULL);
+	return (currentTime.tv_sec * 1000 + currentTime.tv_usec * 0.001);
+
+}
+
+double PMergeMe::timePassed(double startTime){
+	double endTime = trackTime();
+	if (startTime > 0)
+		return endTime - startTime;
+	return 0;
+}
+
+/* --------------------- getters ------------------------*/
 
 bool PMergeMe::getSortedInfo(){
 	return _sorted;
@@ -129,32 +189,40 @@ std::vector<int>& PMergeMe::getVectorCont(){
 	return _vectorCont;
 }
 
+std::deque<int>& PMergeMe::getDequeCont(){
+	return _dequeCont;
+}
+
+/* --------------------- printing ------------------------*/
+
 void PMergeMe::printTimeElapsed(){
-	std::cout << "Time to process a range of " << _vectorCont.size() << " elements with std::vector : " << _timePassedVector <<  " us" << std::endl;
+	std::cout << "\e[0;33m" << "Time to process a range of " << _vectorCont.size() << " elements with std::vector : " << _timePassedVector <<  " us" << "\e[0m" << std::endl;
+	std::cout << std::endl;
+	std::cout << "\e[0;32m" << "Time to process a range of " << _dequeCont.size() << " elements with std::deque : " << _timePassedDeque <<  " us" << "\e[0m" << std::endl;
+	std::cout << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& o, PMergeMe & i)
 {
 	std::vector<int> vectorCont = i.getVectorCont();
+
     try
     {
 		if (i.getSortedInfo() == false){
-			o << "Before: ";
+			o << std::endl;
+			o << "\e[1;37m" << "Before: " << "\e[0m" << std::endl;
 			for (size_t count = 0; count < vectorCont.size(); count++){
-				o << vectorCont[count] << " ";
-				// if (vectorCont[count] != vectorCont.back())
-				// 	o << " ";
+				o << "\e[0;31m" << vectorCont[count] << " " << "\e[0m";
 			}
-			// o << std::endl;
+			o << std::endl;
 		}
 		else{
-            o << "After: ";
+			o << std::endl;
+            o << "\e[1;37m" << "After: " << "\e[0m" << std::endl;
 			for (size_t count = 0; count < vectorCont.size(); count++){
-				o << vectorCont[count] << " ";
-				// if (vectorCont[count] != vectorCont.back())
-				// 	o << " ";
+				o << "\e[0;36m" << vectorCont[count] << " " << "\e[0m";
 			}
-			// o << std::endl;
+			o << std::endl;
 		}
 
     }
@@ -164,3 +232,4 @@ std::ostream& operator<<(std::ostream& o, PMergeMe & i)
     }
     return o;
 }
+
