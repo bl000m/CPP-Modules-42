@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:58:44 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/08 14:32:33 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 21:16:35 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,13 @@ BitcoinExchange::BitcoinExchange(){}
 
 BitcoinExchange::~BitcoinExchange(){}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &src){
-	*this = src;
-}
-
-BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &rhs){
-	if (&rhs != this)
-	*this = rhs;
-	return *this;
-}
-
 float BitcoinExchange::convertDependingOnDate(std::string date, float bitcoinQty, std::map<std::string, float> &recordToCheck){
 	std::ifstream file("data.csv");
-	// if (!file.is_open()){
-	// 	throw SomethingWrong("Error: could not open data.csv");
-	// }
 	std::string record;
 	std::stringstream line;
 	std::string dateToSearch;
 	float exchangeRate;
 	float dollars;
-	// std::cout << date << std::endl;
 	while(std::getline(file, record)){
 		line.clear();
 		line.str(record);
@@ -52,56 +38,40 @@ float BitcoinExchange::convertDependingOnDate(std::string date, float bitcoinQty
 	return dollars;
 }
 
-int	BitcoinExchange::checkDate(std::string date){
-	std::istringstream fullDate(date);
-	int year;
-	int month;
-	int day;
-	char delimiter;
+bool BitcoinExchange::isLeapYear(int year){
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
 
-	if (fullDate >> year >> delimiter >> month >> delimiter >> day){
-		if (year < 0){
-			throw SomethingWrong("Error: year can't be negative !");
-			return false;
-		}
-		if (month < 1){
-			throw SomethingWrong("Error: month can't be < 1");
-			return false;
-		}
-		if (day < 1){
-			throw SomethingWrong("Error: day can't be < 1");
-			return false;
-		}
-		if (month > 12){
-			throw SomethingWrong("Error: month can be > 12");
-			return false;
-			}
-		if (((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31)
-			|| ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)){
-			throw SomethingWrong("Error: day is too higher for the specified month dude");
-			return false;
-			}
-		if (month == 2){
-			if (((year % 4 == 0 && year % 100 != 0) || (year % 4 && year % 100 == 0 && year % 400 == 0))){
-				if (day > 29){
-					throw SomethingWrong("Error: day is not valid for the specified month");
-					return false;
-				}
-			}
-			else{
-				if (day > 28){
-					throw SomethingWrong("Error: day is not valid for the specified month");
-					return false;
-				}
-			}
-		}
-	}
-	return true;
+int BitcoinExchange::checkDate(std::string date){
+    std::istringstream fullDate(date);
+    int year;
+    int month;
+    int day;
+    char delimiter;
+
+    if (fullDate >> year >> delimiter >> month >> delimiter >> day){
+    	int daysInMonth[] = {31, 28 + isLeapYear(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if (year < 0){
+            throw SomethingWrong("Error: wrong year");
+            return false;
+        }
+        if (month < 1 || month > 12){
+            throw SomethingWrong("Error: wrong month");
+            return false;
+        }
+        if (day < 1 || day > daysInMonth[month - 1]
+			|| (month == 2 && day == 29 && !isLeapYear(year))){
+            throw SomethingWrong("Error: wrong day");
+			std::cout << "=> " << std::endl;
+            return false;
+        }
+    }
+    return true;
 }
 
 int	BitcoinExchange::checkBitcoinQty(float bitcoinQty){
 	if (bitcoinQty < 0 || bitcoinQty > 1000){
-		throw SomethingWrong("Error: bitcoin quantity must be between 0 and 1000");
+        throw SomethingWrong("Error: bitcoin quantity must be between 0 and 1000");		
 		return false;
 	}
 	return true;

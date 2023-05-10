@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:59:06 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/08 14:26:11 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 20:01:40 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <map>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
+// #include <map>
+// #include <iostream>
+// #include <fstream>
+// #include <string>
+// #include <sstream>
 
 int checkError(int numArgs){
 	if (numArgs != 2){
@@ -28,6 +28,7 @@ int checkError(int numArgs){
 		file.close();
 		return 1;
 	}
+	file.close();
 	return 0;
 }
 
