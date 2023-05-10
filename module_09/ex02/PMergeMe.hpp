@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:41 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 11:47:30 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/10 12:38:58 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,22 @@ class PMergeMe {
 		//sort algo
 		void sort();
 		void mergeInsertSortVector(std::vector<int> &container);
+		void mergeInsertSortDeque(std::deque<int> &container);
 		void mergeSortVector(std::vector<std::vector<int> > &container, int left, int right);
-    	void insertionSort(std::vector<int>& arr);
-    	void merge(std::vector<int>& arr, std::vector<int>& left, std::vector<int>& right);
+    	void insertionSortVector(std::vector<int>& arr);
+    	void insertionSortDeque(std::deque<int>& arr);
+    	void mergeVector(std::vector<int>& arr, std::vector<int>& left, std::vector<int>& right);
+    	void mergeDeque(std::deque<int>& arr, std::deque<int>& left, std::deque<int>& right);
 
 		//time management
 		double trackTime();
 		double timePassed(double startTime);
 		void printTimeElapsed();
 
-		//getter
+		//getters
 		bool getSortedInfo();
 		std::vector<int>& getVectorCont();
+		std::deque<int>& getDequeCont();
 
 		//<< overload
 		PMergeMe & operator=(const PMergeMe &rhs);
