@@ -6,7 +6,7 @@
 /*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:58:59 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 21:17:12 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/11 07:25:15 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,19 @@
 class BitcoinExchange {
 
 	public:
-		BitcoinExchange();
+		BitcoinExchange(const std::string& dbFile);
+		BitcoinExchange(const BitcoinExchange& src);
 		virtual ~BitcoinExchange();
 
-		float convertDependingOnDate(std::string date, float bitcoinQty, std::map<std::string, float> &recordToCheck);
-		int	checkDate(std::string date);
-		int	checkBitcoinQty(float bitcoinQty);
+		BitcoinExchange&	operator=(const BitcoinExchange& src);
+
+		float convertDependingOnDate(std::string date, float bitcoinQty);
+		bool checkDate(std::string date);
+		bool	checkBitcoinQty(float bitcoinQty);
 		bool isLeapYear(int year);
 
 	private:
+		std::map<std::string, float> _exchangeRates;
 
 	protected:
 		class SomethingWrong : public std::exception {

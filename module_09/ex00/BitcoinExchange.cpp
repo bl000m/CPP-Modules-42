@@ -6,43 +6,63 @@
 /*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:58:44 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 21:16:35 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/11 07:33:38 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(){}
+BitcoinExchange::BitcoinExchange(const std::string& dbFile){
+	std::ifstream file(dbFile.c_str());
+	if (!file.is_open())
+		throw SomethingWrong("Error: cannt open database file");
+	std::string line;
+	while (std::getline(file, line))
+	{
+		std::stringstream ss(line);
+		std::string date;
+		float price;
+		if (std::getline(ss, date, ',') && ss >> price)
+			_exchangeRates[date] = price;
+	}
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& src)
+{
+	*this = src;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
+{
+	if (this != &src)
+		this->_exchangeRates = src._exchangeRates;
+	return (*this);
+}
 
 BitcoinExchange::~BitcoinExchange(){}
 
-float BitcoinExchange::convertDependingOnDate(std::string date, float bitcoinQty, std::map<std::string, float> &recordToCheck){
-	std::ifstream file("data.csv");
-	std::string record;
-	std::stringstream line;
-	std::string dateToSearch;
-	float exchangeRate;
-	float dollars;
-	while(std::getline(file, record)){
-		line.clear();
-		line.str(record);
-		if (std::getline(line, dateToSearch, ',') && line >> exchangeRate){
-			if (dateToSearch >= date){
-				recordToCheck.insert(std::make_pair(dateToSearch, exchangeRate));
-				break ;
-			}
-		}
+//problem: it's taking always the exchangerate of the following line
+float BitcoinExchange::convertDependingOnDate(std::string date, float bitcoinQty){
+	if (checkBitcoinQty(bitcoinQty) == false)
+		throw SomethingWrong("Error: bitcoin quantity must be between 0 and 1000");	
+	if (checkDate(date) == false)
+		throw SomethingWrong("Error: inexistent date");
+	std::map<std::string, float>::const_iterator it = _exchangeRates.find(date);
+	if (it == _exchangeRates.end())
+	{
+		it = _exchangeRates.upper_bound(date);
+		if (it == _exchangeRates.begin())
+			throw SomethingWrong("Error: invalid argument");
+		--it;
 	}
-	dollars = bitcoinQty * recordToCheck[dateToSearch];
-	file.close();
-	return dollars;
+	return (it->second);
 }
 
 bool BitcoinExchange::isLeapYear(int year){
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
-int BitcoinExchange::checkDate(std::string date){
+bool BitcoinExchange::checkDate(std::string date){
     std::istringstream fullDate(date);
     int year;
     int month;
@@ -69,9 +89,8 @@ int BitcoinExchange::checkDate(std::string date){
     return true;
 }
 
-int	BitcoinExchange::checkBitcoinQty(float bitcoinQty){
-	if (bitcoinQty < 0 || bitcoinQty > 1000){
-        throw SomethingWrong("Error: bitcoin quantity must be between 0 and 1000");		
+bool	BitcoinExchange::checkBitcoinQty(float bitcoinQty){
+	if (bitcoinQty < 0 || bitcoinQty > 1000){	
 		return false;
 	}
 	return true;
