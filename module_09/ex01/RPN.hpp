@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:16:42 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/08 15:16:15 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/11 08:56:15 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <map>
 #include <stack>
-#include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>

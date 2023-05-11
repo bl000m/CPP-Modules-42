@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:16:12 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/08 15:13:18 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/11 09:20:58 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv){
 
 	result = 0;
 	if (argc != 2){
-		std::cerr << "Error: wrong number of args. To execute: ./RPN <Reverse Polish Notation expression>";
+		std::cerr << "Error: wrong number of args. To execute: ./RPN <Reverse Polish Notation expression>" << std::endl;
 		return 1;
 	}
 	else{
