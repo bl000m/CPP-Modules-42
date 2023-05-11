@@ -6,16 +6,11 @@
 /*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:59:06 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/11 07:35:41 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/11 12:20:49 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-// #include <map>
-// #include <iostream>
-// #include <fstream>
-// #include <string>
-// #include <sstream>
 
 int checkError(int numArgs){
 	if (numArgs != 2){
@@ -24,7 +19,7 @@ int checkError(int numArgs){
 	}
 	std::ifstream file("data.csv");
 	if (!file.is_open()){
-		std::perror("data.csv");
+		std::cerr << "Error: cannot open the database (data.csv). Check if it's available in the directory or if you have the right permissions" << std::endl;
 		return 1;
 	}
 	file.close();
@@ -40,17 +35,16 @@ void parse(std::istream &file, std::string &line){
 		if (std::getline(content, date, '|') && content >> bitcoinQty)
 		{
 			try{
-				// if (exchange.checkDate(date) == true && exchange.checkBitcoinQty(bitcoinQty) == true){
 					float exchangeRate = exchange.convertDependingOnDate(date, bitcoinQty);
 					float dollars = exchangeRate * bitcoinQty;
-					std::cout << date << " => " << bitcoinQty << " = " << dollars << std::endl;
+					std::cout << date << " => " << bitcoinQty << " = " << "\e[0;33m" << dollars << "\e[0m" << std::endl;
 				}
 			catch (const std::exception & e) {
-				std::cerr << e.what() << " => " << line << std::endl;
+				std::cerr << "\e[0;31m" << e.what() << " => " << "\e[0m" << line << std::endl;
 			}
 		}
 		else
-			std::cerr << "Error: bad input => " << line << std::endl;
+			std::cerr << "\e[0;31m" << "Error: bad input => " << "\e[0m" << line << std::endl;
 	}		
 }
 
@@ -59,11 +53,11 @@ int main(int argc, char **argv){
 		return 1;
 	std::ifstream file(argv[1]);
 	if (!file.is_open()){
-		std::perror(argv[1]);
+		std::cerr << "Error: could not open input file" << std::endl;
 		return 1;
 	}
 	std::string line;
-	std::getline(file, line); // first getline to jump the first line
+	std::getline(file, line);
 	parse(file, line);
 	file.close();
 	return 0;

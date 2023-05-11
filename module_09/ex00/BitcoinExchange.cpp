@@ -6,7 +6,7 @@
 /*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:58:44 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/11 07:33:38 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/11 07:52:44 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ BitcoinExchange::BitcoinExchange(const std::string& dbFile){
 	std::string line;
 	while (std::getline(file, line))
 	{
-		std::stringstream ss(line);
+		std::stringstream reaading(line);
 		std::string date;
 		float price;
-		if (std::getline(ss, date, ',') && ss >> price)
+		if (std::getline(reaading, date, ',') && reaading >> price)
 			_exchangeRates[date] = price;
 	}
 }
