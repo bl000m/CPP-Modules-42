@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+         #
+#    By: mathia <mathia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:45:27 by mpagani           #+#    #+#              #
-#    Updated: 2023/05/08 16:39:31 by mpagani          ###   ########.fr        #
+#    Updated: 2023/05/11 11:06:01 by mathia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER) Makefile
 	@$(CC) $(OBJ) -o $(NAME)
-	@printf "\nI created the executable. Now you can enter $(YELLOW)./PMergeMe$(BACK_WHITE) to launch it.\n"
+	@printf "\nI created the executable. Now you can enter $(YELLOW)./PMergeMe followed by a sequence of POSITIVE random number<>$(BACK_WHITE) to launch it.\n"
 	@printf "Or enter $(YELLOW)make fclean; make -n; make$(BACK_WHITE) to see how I compile.\n\n"
 
 $(OBJDIR)/%.o: %.cpp $(HEADER)

@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   PMergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:45 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 13:35:55 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/11 10:54:44 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PMergeMe.hpp"
 
-PMergeMe::PMergeMe(char **values, int numValues) : _sorted(false){
-	for (int i = 1; i < numValues; i++){
-		_vectorCont.push_back(atoi(values[i]));
-	}
-	for (int i = 1; i < numValues; i++){
-		_dequeCont.push_back(atoi(values[i]));
-	}
+PMergeMe::PMergeMe(char **values, int numValues) : _sorted(false) {
+    for (int i = 1; i < numValues; i++) {
+        int inputToInt = atoi(values[i]);
+        _vectorCont.push_back(inputToInt);
+        _dequeCont.push_back(inputToInt);
+    }
 }
 
 PMergeMe::PMergeMe(){}
@@ -41,7 +40,6 @@ PMergeMe & PMergeMe::operator=(const PMergeMe &rhs){
 }
 
 
-
 /* --------------------- ROUTING SORT ------------------------*/
 
 void PMergeMe::sort(){
@@ -54,8 +52,9 @@ void PMergeMe::sort(){
 	_timePassedDeque = timePassed(startTime);
     _sorted = true;
 }
-/* --------------------- VECTOR CHOICE ------------------------*/
 
+
+/* <<<<<<<<<<<<<<<<<<<<< VECTOR CHOICE ->>>>>>>>>>>>>>>>>>>>>>>> */
 
 void PMergeMe::mergeInsertSortVector(std::vector<int> &container){
     const int threshold = 13;
@@ -68,8 +67,12 @@ void PMergeMe::mergeInsertSortVector(std::vector<int> &container){
         return ;
     }
     std::vector<int>::iterator middle = container.begin() + size / 2;
-    std::vector<int> left(container.begin(), middle);
-    std::vector<int> right(middle, container.end());
+    std::vector<int> left;
+    left.reserve(std::distance(container.begin(), middle));
+    std::vector<int> right;
+    right.reserve(std::distance(middle, container.end()));
+    left.assign(container.begin(), middle);
+    right.assign(middle, container.end());
     mergeInsertSortVector(left);
     mergeInsertSortVector(right);
     mergeVector(container, left, right);
@@ -159,8 +162,6 @@ void PMergeMe::mergeDeque(std::deque<int>& container, std::deque<int>& left, std
 }
 
 
-
-
 /* <<<<<<<<<<<<<<<<<<<<< TRASVERSAL TOOLS ->>>>>>>>>>>>>>>>>>>>>>>> */
 
 /* --------------------- time management ------------------------*/
@@ -172,7 +173,7 @@ double PMergeMe::trackTime(){
 
 }
 
-double PMergeMe::timePassed(double startTime){
+double PMergeMe::timePassed(const double startTime){
 	double endTime = trackTime();
 	if (startTime > 0)
 		return endTime - startTime;
@@ -181,11 +182,11 @@ double PMergeMe::timePassed(double startTime){
 
 /* --------------------- getters ------------------------*/
 
-bool PMergeMe::getSortedInfo(){
+bool PMergeMe::getSortedInfo() const {
 	return _sorted;
 }
 
-std::vector<int>& PMergeMe::getVectorCont(){
+const std::vector<int>& PMergeMe::getVectorCont() const {
 	return _vectorCont;
 }
 
@@ -198,7 +199,9 @@ void PMergeMe::printTimeElapsed(){
 	std::cout << std::endl;
 }
 
-std::ostream& operator<<(std::ostream& o, PMergeMe & i)
+/* ---------------- << operator overload --------------------*/
+
+std::ostream& operator<<(std::ostream& o, const PMergeMe & i)
 {
 	std::vector<int> vectorCont = i.getVectorCont();
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PMergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:53:41 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/10 13:36:06 by mpagani          ###   ########.fr       */
+/*   Updated: 2023/05/11 10:55:44 by mathia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ class PMergeMe {
 		PMergeMe(const PMergeMe &src);
 		virtual ~PMergeMe();
 
+		//operator = overload
+		PMergeMe & operator=(const PMergeMe &rhs);
+		
 		//sort algo
 		void sort();
 		void mergeInsertSortVector(std::vector<int> &container);
 		void mergeInsertSortDeque(std::deque<int> &container);
-		void mergeSortVector(std::vector<std::vector<int> > &container, int left, int right);
     	void insertionSortVector(std::vector<int>& arr);
     	void insertionSortDeque(std::deque<int>& arr);
     	void mergeVector(std::vector<int>& arr, std::vector<int>& left, std::vector<int>& right);
@@ -44,15 +46,12 @@ class PMergeMe {
 
 		//time management
 		double trackTime();
-		double timePassed(double startTime);
+		double timePassed(const double startTime);
 		void printTimeElapsed();
 
 		//getters
-		bool getSortedInfo();
-		std::vector<int>& getVectorCont();
-
-		//<< overload
-		PMergeMe & operator=(const PMergeMe &rhs);
+		bool getSortedInfo() const;
+		const std::vector<int>& getVectorCont() const;
 
 	private:
 		PMergeMe();
@@ -62,19 +61,8 @@ class PMergeMe {
 		double	_timePassedVector;
 		double	_timePassedDeque;
 
-	protected:
-		class SomethingWrong : public std::exception {
-			public:
-				SomethingWrong(const char *msg) : message(msg) {}
-				virtual const char*what() const throw(){
-					return message.c_str();
-				}
-				virtual ~SomethingWrong() throw() {}
-			private:
-				std::string message;
-		};
 };
 
-std::ostream&	operator<<(std::ostream& o, PMergeMe& i);
+std::ostream&	operator<<(std::ostream& o, const PMergeMe& i);
 
 #endif
