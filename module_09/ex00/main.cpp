@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:59:06 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/11 12:20:49 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/12 11:25:05 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void parse(std::istream &file, std::string &line){
 		if (std::getline(content, date, '|') && content >> bitcoinQty)
 		{
 			try{
+					exchange.checkDateChar(date);
 					float exchangeRate = exchange.convertDependingOnDate(date, bitcoinQty);
 					float dollars = exchangeRate * bitcoinQty;
 					std::cout << date << " => " << bitcoinQty << " = " << "\e[0;33m" << dollars << "\e[0m" << std::endl;
@@ -43,12 +44,16 @@ void parse(std::istream &file, std::string &line){
 				std::cerr << "\e[0;31m" << e.what() << " => " << "\e[0m" << line << std::endl;
 			}
 		}
+		else if (line.empty())
+			continue;
 		else
 			std::cerr << "\e[0;31m" << "Error: bad input => " << "\e[0m" << line << std::endl;
-	}		
+	}
 }
 
 int main(int argc, char **argv){
+	int isInt = 0;
+
 	if (checkError(argc))
 		return 1;
 	std::ifstream file(argv[1]);
@@ -58,6 +63,9 @@ int main(int argc, char **argv){
 	}
 	std::string line;
 	std::getline(file, line);
+	std::istringstream checkIfTitle(line);
+	if (checkIfTitle >> isInt)
+		file.seekg(0);
 	parse(file, line);
 	file.close();
 	return 0;
