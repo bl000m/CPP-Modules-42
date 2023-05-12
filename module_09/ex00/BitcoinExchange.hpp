@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathia <mathia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mpagani <mpagani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:58:59 by mpagani           #+#    #+#             */
-/*   Updated: 2023/05/11 07:25:15 by mathia           ###   ########.fr       */
+/*   Updated: 2023/05/12 11:10:43 by mpagani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class BitcoinExchange {
 
 		float convertDependingOnDate(std::string date, float bitcoinQty);
 		bool checkDate(std::string date);
+		bool checkDateChar(std::string date);
 		bool	checkBitcoinQty(float bitcoinQty);
 		bool isLeapYear(int year);
 
